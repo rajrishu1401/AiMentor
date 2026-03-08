@@ -27,4 +27,4 @@ export const AGENT_INVOCATION_TIMEOUT = 120_000; // 2 minutes
 export const CHUNK_SIZE = 1000;    // characters per chunk
 export const CHUNK_OVERLAP = 200;  // character overlap between chunks
 export const MAX_CHUNKS = 1000;    // hard cap on total chunks
-export const TOP_K_CHUNKS = 5;     // top K chunks to retrieve
+export const TOP_K_CHUNKS = 15;    // top K chunks to retrieve (increased for better coverage)

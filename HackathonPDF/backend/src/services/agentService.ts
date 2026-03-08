@@ -166,19 +166,21 @@ export class AgentService {
     }
 
     private buildPrompt(userPrompt: string, context: string, intent: IntentType): string {
-        return `You are an expert AI Mentor. Use ONLY the context below—do not use external knowledge.
+        return `You are an expert AI Mentor. The document content is provided below in the DOCUMENT CONTEXT section.
+
+CRITICAL INSTRUCTION: Use ONLY the information from the DOCUMENT CONTEXT below to answer. Do NOT use external knowledge. Do NOT say information is unavailable if it exists in the context.
 
 ${INTENT_PROMPTS[intent]}
 
 ═══════════════════════════════════════════
-DOCUMENT CONTEXT:
+DOCUMENT CONTEXT (Use this to answer):
 ${context}
 ═══════════════════════════════════════════
 
 USER REQUEST:
 ${userPrompt}
 
-Respond now following the intent instructions above.`;
+Respond now using ONLY the DOCUMENT CONTEXT above. Follow the intent instructions.`;
     }
 
     private buildOutput(
