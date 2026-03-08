@@ -1,0 +1,83 @@
+========================================
+DEPLOYMENT CHECKLIST - SIMPLE
+========================================
+
+PHASE 1: LAUNCH EC2
+========================================
+☐ 1. Go to EC2 Console
+☐ 2. Click "Launch Instance"
+☐ 3. Name: hackveda-app-server
+☐ 4. AMI: Amazon Linux 2023
+☐ 5. Instance type: t3.medium
+☐ 6. Key pair: Create/select key pair
+☐ 7. Security group: Add 6 rules (SSH, HTTP, HTTPS, 5005, 5006, 5012)
+☐ 8. Storage: 30 GiB
+☐ 9. Click "Launch instance"
+☐ 10. Wait for "Running" status
+☐ 11. Note Public IP: _______________
+☐ 12. Connect via SSH
+
+
+PHASE 2: SETUP EC2
+========================================
+☐ 13. Update system: sudo yum update -y
+☐ 14. Install Node.js 18
+☐ 15. Install Git
+☐ 16. Install PM2
+☐ 17. Install Nginx
+☐ 18. Configure AWS CLI: aws configure
+
+
+PHASE 3: DEPLOY BACKENDS
+========================================
+☐ 19. Clone repo: git clone https://github.com/YOUR_USERNAME/hackveda.git
+☐ 20. Deploy main backend (port 5012)
+☐ 21. Deploy chatbot backend (port 5005)
+☐ 22. Deploy PDF backend (port 5006)
+☐ 23. Configure PM2 startup
+☐ 24. Verify all running: pm2 status
+
+
+PHASE 4: CONFIGURE NGINX
+========================================
+☐ 25. Create Nginx config
+☐ 26. Test config: sudo nginx -t
+☐ 27. Start Nginx
+☐ 28. Test endpoints via public IP
+
+
+PHASE 5: DEPLOY FRONTEND (On Your PC)
+========================================
+☐ 29. Update frontend .env.production with EC2 IP
+☐ 30. Build frontend: npm run build
+☐ 31. Create S3 bucket
+☐ 32. Upload to S3
+☐ 33. Make bucket public
+☐ 34. Get S3 website URL
+
+
+PHASE 6: UPDATE CORS
+========================================
+☐ 35. Update CORS in all backends
+☐ 36. Push to GitHub
+☐ 37. Pull on EC2
+☐ 38. Restart backends: pm2 restart all
+
+
+PHASE 7: TESTING
+========================================
+☐ 39. Test frontend loads
+☐ 40. Test login/signup
+☐ 41. Test all features
+☐ 42. Check browser console for errors
+☐ 43. Check PM2 logs
+
+
+DONE! 🎉
+========================================
+
+Your app is live at:
+  Frontend: http://your-bucket.s3-website.ap-south-1.amazonaws.com
+  Backend: http://YOUR_EC2_IP/api/
+
+========================================

@@ -1,0 +1,232 @@
+========================================
+AFTER EC2 LAUNCH - DEPLOYMENT STEPS
+========================================
+
+YOU ARE NOW CONNECTED TO EC2!
+Your terminal should show: [ec2-user@ip-xxx-xx-xx-xx ~]$
+
+========================================
+STEP 1: UPDATE SYSTEM
+========================================
+sudo yum update -y
+
+
+========================================
+STEP 2: INSTALL NODE.JS 18
+========================================
+curl -fsSL https://rpm.nodesource.com/setup_18.x | sudo bash -
+sudo yum install -y nodejs
+
+# Verify installation
+node --version
+npm --version
+
+
+========================================
+STEP 3: INSTALL GIT
+========================================
+sudo yum install -y git
+
+# Verify installation
+git --version
+
+
+========================================
+STEP 4: INSTALL PM2 (Process Manager)
+========================================
+sudo npm install -g pm2
+
+# Verify installation
+pm2 --version
+
+
+========================================
+STEP 5: INSTALL NGINX (Reverse Proxy)
+========================================
+sudo yum install -y nginx
+
+# Verify installation
+nginx -v
+
+
+========================================
+STEP 6: CONFIGURE AWS CLI
+========================================
+# AWS CLI is pre-installed on Amazon Linux 2023
+aws --version
+
+# Configure with your credentials
+aws configure
+
+Enter:
+  AWS Access Key ID: [your-access-key]
+  AWS Secret Access Key: [your-secret-key]
+  Default region name: ap-south-1
+  Default output format: json
+
+
+========================================
+STEP 7: CLONE YOUR REPOSITORY
+========================================
+cd /home/ec2-user
+git clone https://github.com/YOUR_USERNAME/hackveda.git
+cd hackveda
+
+# Verify files are there
+ls -la
+
+
+========================================
+STEP 8: DEPLOY MAIN BACKEND
+========================================
+cd backend
+npm install
+pm2 start server.js --name hackveda-backend
+pm2 save
+
+# Check status
+pm2 status
+
+# Test
+curl http://localhost:5012/
+
+
+========================================
+STEP 9: DEPLOY CHATBOT BACKEND
+========================================
+cd /home/ec2-user/hackveda/chatbotAWS
+npm install
+pm2 start backend.js --name hackveda-chatbot
+pm2 save
+
+# Check status
+pm2 status
+
+# Test
+curl http://localhost:5005/
+
+
+========================================
+STEP 10: DEPLOY PDF BACKEND
+========================================
+cd /home/ec2-user/hackveda/HackathonPDF/backend
+npm install
+pm2 start src/index.ts --name hackveda-pdf
+pm2 save
+
+# Check status
+pm2 status
+
+# Test
+curl http://localhost:5006/
+
+
+========================================
+STEP 11: CONFIGURE PM2 STARTUP
+========================================
+pm2 startup
+
+# Copy and run the command it shows
+# Then:
+pm2 save
+
+
+========================================
+STEP 12: CONFIGURE NGINX
+========================================
+# Get your public IP
+PUBLIC_IP=$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4)
+echo "Your Public IP: $PUBLIC_IP"
+
+# Create Nginx config
+sudo nano /etc/nginx/conf.d/hackveda.conf
+
+# Paste this (replace YOUR_PUBLIC_IP with actual IP):
+server {
+    listen 80;
+    server_name YOUR_PUBLIC_IP;
+
+    client_max_body_size 50M;
+
+    location /api/ {
+        proxy_pass http://localhost:5012/api/;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_cache_bypass $http_upgrade;
+    }
+
+    location /chatbot/ {
+        proxy_pass http://localhost:5005/;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_cache_bypass $http_upgrade;
+    }
+
+    location /pdf/ {
+        proxy_pass http://localhost:5006/;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+
+# Save: Ctrl+X, Y, Enter
+
+# Test Nginx config
+sudo nginx -t
+
+# Start Nginx
+sudo systemctl start nginx
+sudo systemctl enable nginx
+
+# Check status
+sudo systemctl status nginx
+
+
+========================================
+STEP 13: TEST BACKENDS VIA NGINX
+========================================
+# Get your public IP
+PUBLIC_IP=$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4)
+
+# Test endpoints
+curl http://$PUBLIC_IP/api/
+curl http://$PUBLIC_IP/chatbot/
+curl http://$PUBLIC_IP/pdf/
+
+
+========================================
+STEP 14: VIEW LOGS
+========================================
+# PM2 logs
+pm2 logs
+
+# Nginx logs
+sudo tail -f /var/log/nginx/access.log
+sudo tail -f /var/log/nginx/error.log
+
+
+========================================
+BACKENDS ARE NOW DEPLOYED!
+========================================
+
+Your backend APIs are accessible at:
+  - Main API: http://YOUR_PUBLIC_IP/api/
+  - Chatbot API: http://YOUR_PUBLIC_IP/chatbot/
+  - PDF API: http://YOUR_PUBLIC_IP/pdf/
+
+Next: Deploy frontend to S3
+
+========================================

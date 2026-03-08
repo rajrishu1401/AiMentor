@@ -1,0 +1,158 @@
+========================================
+EC2 INSTANCE LAUNCH - STEP BY STEP
+========================================
+
+STEP 1: GO TO EC2 CONSOLE
+--------------------------
+Open: https://ap-south-1.console.aws.amazon.com/ec2/home?region=ap-south-1
+Click: "Launch Instance" (orange button)
+
+
+STEP 2: NAME YOUR INSTANCE
+--------------------------
+Name: hackveda-app-server
+
+
+STEP 3: CHOOSE AMI (Operating System)
+--------------------------
+Quick Start: Amazon Linux
+Select: Amazon Linux 2023 AMI (first option)
+Architecture: 64-bit (x86)
+
+
+STEP 4: CHOOSE INSTANCE TYPE
+--------------------------
+Instance type: t3.medium
+  - 2 vCPU
+  - 4 GiB Memory
+  - Cost: ~$0.0416/hour (~$30/month)
+
+
+STEP 5: KEY PAIR
+--------------------------
+Option A - If you have existing key:
+  - Select your existing key pair
+
+Option B - Create new key:
+  - Click "Create new key pair"
+  - Name: hackveda-key
+  - Key pair type: RSA
+  - Private key format: .pem
+  - Click "Create key pair"
+  - SAVE THE FILE! You'll need it to connect
+
+
+STEP 6: NETWORK SETTINGS
+--------------------------
+Click "Edit" button
+
+VPC: Default VPC (leave as is)
+Subnet: No preference (leave as is)
+Auto-assign public IP: Enable
+
+Firewall (security groups): Create security group
+  - Security group name: hackveda-sg
+  - Description: Security group for HackVeda app
+
+
+STEP 7: ADD SECURITY GROUP RULES
+--------------------------
+Click "Add security group rule" for each:
+
+Rule 1 - SSH:
+  - Type: SSH
+  - Port: 22
+  - Source: My IP
+
+Rule 2 - HTTP:
+  - Type: HTTP
+  - Port: 80
+  - Source: Anywhere (0.0.0.0/0)
+
+Rule 3 - HTTPS:
+  - Type: HTTPS
+  - Port: 443
+  - Source: Anywhere (0.0.0.0/0)
+
+Rule 4 - Main Backend:
+  - Type: Custom TCP
+  - Port: 5012
+  - Source: Anywhere (0.0.0.0/0)
+
+Rule 5 - Chatbot Backend:
+  - Type: Custom TCP
+  - Port: 5005
+  - Source: Anywhere (0.0.0.0/0)
+
+Rule 6 - PDF Backend:
+  - Type: Custom TCP
+  - Port: 5006
+  - Source: Anywhere (0.0.0.0/0)
+
+
+STEP 8: CONFIGURE STORAGE
+--------------------------
+Size: 30 GiB
+Volume type: gp3
+Delete on termination: Yes (checked)
+
+
+STEP 9: ADVANCED DETAILS
+--------------------------
+Leave everything as default (no changes needed)
+
+
+STEP 10: LAUNCH
+--------------------------
+Review the Summary panel on right side
+Click "Launch instance" (orange button)
+Wait 1-2 minutes for instance to start
+
+
+STEP 11: GET INSTANCE DETAILS
+--------------------------
+Click "View all instances"
+Find: hackveda-app-server
+Wait until "Instance state" shows "Running" (green)
+
+WRITE DOWN THESE:
+  - Instance ID: i-_________________
+  - Public IPv4 address: ___.___.___.___ 
+  - Key file location: _________________
+
+
+STEP 12: TEST CONNECTION
+--------------------------
+Open terminal/PowerShell and run:
+
+Windows (Git Bash or PowerShell):
+  ssh -i path/to/hackveda-key.pem ec2-user@YOUR_PUBLIC_IP
+
+Mac/Linux:
+  chmod 400 path/to/hackveda-key.pem
+  ssh -i path/to/hackveda-key.pem ec2-user@YOUR_PUBLIC_IP
+
+Type "yes" when asked about authenticity
+
+You should see:
+   ,     #_
+   ~\_  ####_        Amazon Linux 2023
+  ~~  \_#####\
+  ~~     \###|
+  ~~       \#/ ___
+   ~~       V~' '->
+    ~~~         /
+      ~~._.   _/
+         _/ _/
+       _/m/'
+
+[ec2-user@ip-xxx-xx-xx-xx ~]$
+
+SUCCESS! You're connected to EC2!
+
+
+NEXT STEPS:
+--------------------------
+Once connected, proceed to setup and deployment.
+
+========================================

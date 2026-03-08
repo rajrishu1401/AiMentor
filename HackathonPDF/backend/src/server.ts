@@ -22,7 +22,18 @@ import { IntentType } from './shared/types';
 const app = express();
 const PORT = Number(process.env.PORT) || 5006;
 
-app.use(cors({ origin: '*' }));
+// CORS configuration for production
+const corsOptions = {
+    origin: [
+        'http://localhost:5173', // Local development
+        'http://localhost:5010', // Local production
+        'http://aimentor-frontend.s3-website.ap-south-1.amazonaws.com', // S3 frontend
+        'http://13.232.0.142' // EC2 public IP
+    ],
+    credentials: true
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // ─── Multer (memory storage) ──────────────────────────────────────────────────
