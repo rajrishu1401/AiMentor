@@ -1,0 +1,768 @@
+import { useEffect, useState, useRef } from "react";
+import { apiRequest } from "../api/api";
+import { parseProblemStatement } from "../utils/problemStatementParser";
+import "./CodingPage.css";
+
+export default function CodingPage({ codingData, onFinish }) {
+  const { roadmapIndex, topicIndex, subtopicIndex, subtopicTitle } = codingData;
+
+  // State
+  const [subtopic, setSubtopic] = useState(null);
+  const [parsedProblem, setParsedProblem] = useState(null);
+  const [code, setCode] = useState("");
+  const [output, setOutput] = useState("");
+  const [feedback, setFeedback] = useState("");
+  const [score, setScore] = useState(null);
+  const [submitting, setSubmitting] = useState(false);
+  const [running, setRunning] = useState(false);
+  const [locked, setLocked] = useState(false);
+  
+  // UI State
+  const [theme, setTheme] = useState('dark');
+  const [fontSize, setFontSize] = useState(14);
+  const [showFontMenu, setShowFontMenu] = useState(false);
+  const [activeTab, setActiveTab] = useState('output');
+  const [outputHeight, setOutputHeight] = useState(200);
+  const [chatHeight, setChatHeight] = useState(250);
+  const [isResizing, setIsResizing] = useState(false);
+  const [resizeType, setResizeType] = useState(null); // 'problem', 'code', 'output', 'chatbot'
+  const [showProblemDesc, setShowProblemDesc] = useState(true);
+  const [showChatbot, setShowChatbot] = useState(false); // Drawer closed by default
+  const [chatbotMinimized, setChatbotMinimized] = useState(false);
+  
+  // Panel widths (percentages)
+  const [problemWidth, setProblemWidth] = useState(40);
+  const [chatbotWidth, setChatbotWidth] = useState(25);
+  
+  // Chatbot State
+  const [messages, setMessages] = useState([
+    {
+      type: 'bot',
+      text: `Hi! I'm your coding assistant. I can help you with hints, explanations, and debugging tips for this problem!`
+    }
+  ]);
+  const [chatInput, setChatInput] = useState('');
+  const [isListening, setIsListening] = useState(false);
+  
+  const chatMessagesRef = useRef(null);
+  const recognitionRef = useRef(null);
+
+  // Apply theme
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
+
+  // Auto-scroll chat messages
+  useEffect(() => {
+    if (chatMessagesRef.current) {
+      chatMessagesRef.current.scrollTop = chatMessagesRef.current.scrollHeight;
+    }
+  }, [messages]);
+
+  /* ------------------------------------
+     LOAD CODING CHALLENGE
+  ------------------------------------ */
+  useEffect(() => {
+    const loadChallenge = async () => {
+      const res = await apiRequest(
+        `/learning/my-subtopics?roadmapIndex=${roadmapIndex}&topicIndex=${topicIndex}`
+      );
+
+      const current = res.subtopics[subtopicIndex];
+      setSubtopic(current);
+      setCode(current.codingChallenge?.starterCode || "");
+
+      // Parse problem statement
+      if (current.codingChallenge?.problemStatement) {
+        const parsed = parseProblemStatement(current.codingChallenge.problemStatement);
+        setParsedProblem(parsed);
+      }
+
+      if (current.codingSubmission?.noOfSubmissions > 0) {
+        setLocked(true);
+        setScore(current.codingSubmission.scoreForCode);
+        setOutput(current.codingSubmission.lastResult?.passed 
+          ? "All test cases passed! ✅" 
+          : `${current.codingSubmission.lastResult?.failedTestCases} test case(s) failed`);
+      }
+    };
+
+    loadChallenge();
+  }, [roadmapIndex, topicIndex, subtopicIndex]);
+
+  /* ------------------------------------
+     RUN CODE (without submitting)
+  ------------------------------------ */
+  const runCode = async () => {
+    try {
+      setRunning(true);
+      setActiveTab('output');
+      setOutput("Running code...\n\n");
+
+      const res = await apiRequest(
+        "/learning/run-code",
+        "POST",
+        {
+          roadmapIndex,
+          topicIndex,
+          subtopicIndex,
+          code
+        }
+      );
+
+      setOutput(res.executionOutput || "Code executed successfully!");
+    } catch (err) {
+      console.error("❌ Code execution failed:", err);
+      setOutput(`Error: ${err.message || 'Code execution failed'}`);
+    } finally {
+      setRunning(false);
+    }
+  };
+
+  /* ------------------------------------
+     SUBMIT CODE
+  ------------------------------------ */
+  const submitCode = async () => {
+    try {
+      setSubmitting(true);
+      setActiveTab('output');
+      setOutput("Running code...\n\n");
+
+      const res = await apiRequest(
+        "/learning/submit-code",
+        "POST",
+        {
+          roadmapIndex,
+          topicIndex,
+          subtopicIndex,
+          code
+        }
+      );
+
+      setOutput(res.executionOutput || "");
+      setFeedback(res.feedback);
+      setScore(res.score);
+      setLocked(true);
+      
+      // Add success message to chat
+      setMessages(prev => [...prev, {
+        type: 'bot',
+        text: `Great job! You scored ${res.score} points. ${res.feedback || ''}`
+      }]);
+    } catch (err) {
+      console.error("❌ Code submission failed:", err);
+      setOutput(`Error: ${err.message || 'Code submission failed'}`);
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  /* ------------------------------------
+     CHATBOT FUNCTIONS
+  ------------------------------------ */
+  const handleSendMessage = async () => {
+    if (!chatInput.trim()) return;
+
+    const userMessage = { type: 'user', text: chatInput };
+    setMessages(prev => [...prev, userMessage]);
+
+    const inputText = chatInput;
+    setChatInput('');
+
+    // Add loading message
+    const loadingMessage = { type: 'bot', text: '...' };
+    setMessages(prev => [...prev, loadingMessage]);
+
+    try {
+      // Call AWS Bedrock chatbot backend with current code
+      const response = await apiRequest('/learning/chat', 'POST', {
+        message: inputText,
+        sessionId: `coding-${roadmapIndex}-${topicIndex}-${subtopicIndex}`,
+        problemContext: subtopic?.codingChallenge ? {
+          title: subtopicTitle,
+          description: subtopic.codingChallenge.problemStatement,
+          hint: subtopic.codingChallenge.hint
+        } : null,
+        userCode: code // Pass current code
+      });
+
+      // Replace loading message with actual response
+      setMessages(prev => {
+        const newMessages = [...prev];
+        newMessages[newMessages.length - 1] = {
+          type: 'bot',
+          text: response.reply || 'Sorry, I could not generate a response.'
+        };
+        return newMessages;
+      });
+    } catch (error) {
+      console.error('Chatbot error:', error);
+      // Replace loading message with fallback
+      setMessages(prev => {
+        const newMessages = [...prev];
+        newMessages[newMessages.length - 1] = {
+          type: 'bot',
+          text: generateBotResponse(inputText) + '\n\n(Note: Using fallback response. Backend may be unavailable.)'
+        };
+        return newMessages;
+      });
+    }
+  };
+
+  const generateBotResponse = (input) => {
+    const lowerInput = input.toLowerCase();
+
+    if (lowerInput.includes('hint') || lowerInput.includes('help')) {
+      return subtopic?.codingChallenge?.hint || 
+        "Think about the problem step by step. What data structure would be most efficient?";
+    } else if (lowerInput.includes('test case') || lowerInput.includes('example')) {
+      const testCases = subtopic?.codingChallenge?.testCases || [];
+      if (testCases.length > 0) {
+        return `Here's a test case:\nInput: ${testCases[0].input}\nExpected Output: ${testCases[0].expectedOutput}`;
+      }
+      return "No test cases available for this problem.";
+    } else if (lowerInput.includes('complexity') || lowerInput.includes('time')) {
+      return "Consider the time and space complexity of your solution. Can you optimize it further?";
+    } else if (lowerInput.includes('debug') || lowerInput.includes('error')) {
+      return "Common debugging tips:\n1. Check your variable names\n2. Verify loop conditions\n3. Test with simple inputs first\n4. Add console.log statements";
+    } else {
+      return `I can help you with:\n- "Give me a hint"\n- "Show me a test case"\n- "What's the time complexity?"\n- "Help me debug"`;
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSendMessage();
+    }
+  };
+
+  // Voice Input (Speech-to-Text)
+  const startListening = () => {
+    const SpeechRecognition =
+      window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    if (!SpeechRecognition) {
+      alert('Speech recognition is not supported in this browser. Try Chrome or Edge.');
+      return;
+    }
+
+    if (isListening) {
+      recognitionRef.current?.stop();
+      setIsListening(false);
+      return;
+    }
+
+    const recognition = new SpeechRecognition();
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+    recognitionRef.current = recognition;
+
+    recognition.onstart = () => setIsListening(true);
+
+    recognition.onresult = async (event) => {
+      const text = event.results[0][0].transcript;
+      setIsListening(false);
+
+      const userMessage = { type: 'user', text };
+      setMessages(prev => [...prev, userMessage]);
+
+      // Add loading message
+      const loadingMessage = { type: 'bot', text: '...' };
+      setMessages(prev => [...prev, loadingMessage]);
+
+      try {
+        // Call AWS Bedrock chatbot backend with current code
+        const response = await apiRequest('/learning/chat', 'POST', {
+          message: text,
+          sessionId: `coding-voice-${roadmapIndex}-${topicIndex}-${subtopicIndex}`,
+          problemContext: subtopic?.codingChallenge ? {
+            title: subtopicTitle,
+            description: subtopic.codingChallenge.problemStatement,
+            hint: subtopic.codingChallenge.hint
+          } : null,
+          userCode: code // Pass current code
+        });
+
+        const reply = response.reply || 'Sorry, I could not generate a response.';
+
+        // Replace loading message with actual response
+        setMessages(prev => {
+          const newMessages = [...prev];
+          newMessages[newMessages.length - 1] = {
+            type: 'bot',
+            text: reply
+          };
+          return newMessages;
+        });
+
+        speak(reply);
+      } catch (error) {
+        console.error('Voice chatbot error:', error);
+        const fallback = generateBotResponse(text);
+        setMessages(prev => {
+          const newMessages = [...prev];
+          newMessages[newMessages.length - 1] = {
+            type: 'bot',
+            text: fallback
+          };
+          return newMessages;
+        });
+        speak(fallback);
+      }
+    };
+
+    recognition.onerror = (e) => {
+      console.error('Speech recognition error:', e.error);
+      setIsListening(false);
+    };
+
+    recognition.onend = () => setIsListening(false);
+
+    recognition.start();
+  };
+
+  // Voice Output (Text-to-Speech)
+  const speak = (text) => {
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'en-US';
+    utterance.rate = 1;
+    window.speechSynthesis.speak(utterance);
+  };
+
+  // Format message content
+  const formatMessageContent = (text) => {
+    const parts = text.split(/(```[\s\S]*?```)/g);
+
+    return parts.map((part, index) => {
+      if (part.startsWith('```') && part.endsWith('```')) {
+        const lines = part.split('\n');
+        const firstLine = lines[0].replace('```', '').trim();
+        const language = firstLine || 'code';
+        const codeContent = lines.slice(1, -1).join('\n');
+
+        return (
+          <div key={index} className="code-block">
+            <div className="code-block-header">{language}</div>
+            <pre className="code-block-content">{codeContent}</pre>
+          </div>
+        );
+      }
+
+      return (
+        <span key={index} style={{ whiteSpace: 'pre-wrap' }}>
+          {part}
+        </span>
+      );
+    });
+  };
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+  };
+
+  // Handle resize
+  const handleMouseDown = (type) => (e) => {
+    setIsResizing(true);
+    setResizeType(type);
+    e.preventDefault();
+  };
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (!isResizing || !resizeType) return;
+      
+      if (resizeType === 'output') {
+        const container = document.querySelector('.right-panel');
+        if (!container) return;
+        
+        const containerRect = container.getBoundingClientRect();
+        const newHeight = containerRect.bottom - e.clientY;
+        
+        // Constrain between 150px and 400px
+        if (newHeight >= 150 && newHeight <= 400) {
+          setOutputHeight(newHeight);
+        }
+      } else if (resizeType === 'problem') {
+        const container = document.querySelector('.coding-main-content');
+        if (!container) return;
+        
+        const containerRect = container.getBoundingClientRect();
+        const newWidth = ((e.clientX - containerRect.left) / containerRect.width) * 100;
+        
+        // Constrain between 20% and 60%
+        if (newWidth >= 20 && newWidth <= 60) {
+          setProblemWidth(newWidth);
+        }
+      } else if (resizeType === 'chatbot') {
+        const container = document.querySelector('.coding-main-content');
+        if (!container) return;
+        
+        const containerRect = container.getBoundingClientRect();
+        const newWidth = ((containerRect.right - e.clientX) / containerRect.width) * 100;
+        
+        // Constrain between 20% and 40%
+        if (newWidth >= 20 && newWidth <= 40) {
+          setChatbotWidth(newWidth);
+        }
+      }
+    };
+
+    const handleMouseUp = () => {
+      setIsResizing(false);
+      setResizeType(null);
+    };
+
+    if (isResizing) {
+      document.addEventListener('mousemove', handleMouseMove);
+      document.addEventListener('mouseup', handleMouseUp);
+    }
+
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, [isResizing, resizeType]);
+
+  if (!subtopic) return <div className="loading">Loading coding challenge...</div>;
+
+  return (
+    <div className="coding-page-container">
+      {/* Header */}
+      <header className="coding-header">
+        <div className="header-left">
+          <div className="logo">
+            <div className="logo-icon">{'</>'}</div>
+            <span>Coding Challenge</span>
+          </div>
+        </div>
+        <div className="header-right">
+          <button 
+            className={`chatbot-drawer-toggle ${showChatbot ? 'active' : ''}`}
+            onClick={() => setShowChatbot(!showChatbot)}
+            title={showChatbot ? "Close AI Assistant" : "Open AI Assistant"}
+          >
+            <span>🤖</span>
+            <span>AI Assistant</span>
+          </button>
+          <button className="theme-toggle" onClick={toggleTheme} title="Toggle theme">
+            {theme === 'dark' ? '☀️' : '🌙'}
+          </button>
+        </div>
+      </header>
+
+      {/* Main Content - LEETCODE LAYOUT WITH DRAWER */}
+      <div 
+        className="coding-main-content" 
+        style={{
+          gridTemplateColumns: showChatbot 
+            ? `${problemWidth}% ${100 - problemWidth - chatbotWidth}% ${chatbotWidth}%`
+            : `${problemWidth}% ${100 - problemWidth}%`
+        }}
+      >
+        {/* LEFT PANEL - Problem Description */}
+        <div className="left-panel">
+          <div className="problem-header">
+            <div className="problem-header-content">
+              <h1 className="problem-title">{subtopicTitle}</h1>
+              <span className="badge badge-medium">Challenge</span>
+            </div>
+          </div>
+          
+          <div className="problem-description-scroll">
+            {parsedProblem && (parsedProblem.description || parsedProblem.inputFormat || parsedProblem.samples.length > 0) ? (
+              <>
+                {/* Description Section */}
+                {parsedProblem.description && (
+                  <div className="problem-section">
+                    <h3 className="section-title">Description</h3>
+                    <div className="section-content">
+                      <p>{parsedProblem.description}</p>
+                    </div>
+                  </div>
+                )}
+
+                {/* Input Format Section */}
+                {parsedProblem.inputFormat && (
+                  <div className="problem-section">
+                    <h3 className="section-title">Input Format</h3>
+                    <div className="section-content">
+                      <pre className="format-text">{parsedProblem.inputFormat}</pre>
+                    </div>
+                  </div>
+                )}
+
+                {/* Constraints Section */}
+                {parsedProblem.constraints && (
+                  <div className="problem-section">
+                    <h3 className="section-title">Constraints</h3>
+                    <div className="section-content">
+                      <pre className="format-text">{parsedProblem.constraints}</pre>
+                    </div>
+                  </div>
+                )}
+
+                {/* Output Format Section */}
+                {parsedProblem.outputFormat && (
+                  <div className="problem-section">
+                    <h3 className="section-title">Output Format</h3>
+                    <div className="section-content">
+                      <pre className="format-text">{parsedProblem.outputFormat}</pre>
+                    </div>
+                  </div>
+                )}
+
+                {/* Sample Test Cases */}
+                {parsedProblem.samples && parsedProblem.samples.length > 0 && (
+                  <div className="problem-section">
+                    <h3 className="section-title">Sample Test Cases</h3>
+                    {parsedProblem.samples.map((sample, idx) => (
+                      <div key={idx} className="sample-case">
+                        <div className="sample-header">Sample {sample.index}</div>
+                        <div className="sample-io">
+                          <div className="sample-input">
+                            <div className="io-label">Input:</div>
+                            <pre className="io-content">{sample.input}</pre>
+                          </div>
+                          <div className="sample-output">
+                            <div className="io-label">Output:</div>
+                            <pre className="io-content">{sample.output}</pre>
+                          </div>
+                        </div>
+                        {sample.explanation && (
+                          <div className="sample-explanation">
+                            <div className="io-label">Explanation:</div>
+                            <p>{sample.explanation}</p>
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {/* Hint Section */}
+                {subtopic?.codingChallenge?.hint && (
+                  <div className="problem-section">
+                    <h3 className="section-title">💡 Hint</h3>
+                    <div className="section-content hint-content">
+                      <p>{subtopic.codingChallenge.hint}</p>
+                    </div>
+                  </div>
+                )}
+              </>
+            ) : (
+              <div className="problem-section">
+                <div className="section-content">
+                  <pre style={{ whiteSpace: 'pre-wrap', lineHeight: '1.6' }}>
+                    {subtopic?.codingChallenge?.problemStatement || 'Loading problem...'}
+                  </pre>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Resize Handle - Problem/Code */}
+        <div 
+          className="vertical-resize-handle" 
+          onMouseDown={handleMouseDown('problem')}
+          title="Drag to resize"
+        />
+
+        {/* MIDDLE PANEL - Code + Output */}
+        <div className="middle-panel">
+          {/* Code Section */}
+          <div className="code-section">
+            <div className="code-header">
+              <div className="code-header-left">
+                <span className="code-label">Your Solution</span>
+              </div>
+              <div className="code-header-right">
+                <div className="font-size-menu">
+                  <button
+                    className="btn-icon"
+                    onClick={() => setShowFontMenu(!showFontMenu)}
+                    title="Font size"
+                  >
+                    ⋮
+                  </button>
+                  {showFontMenu && (
+                    <div className="font-size-dropdown">
+                      {[12, 14, 16, 18, 20].map(size => (
+                        <div
+                          key={size}
+                          className={`font-size-option ${fontSize === size ? 'active' : ''}`}
+                          onClick={() => {
+                            setFontSize(size);
+                            setShowFontMenu(false);
+                          }}
+                        >
+                          {size}px
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                <button 
+                  className="btn btn-run" 
+                  onClick={runCode}
+                  disabled={running || locked}
+                  title="Run code to see output (doesn't submit)"
+                >
+                  {running ? '⏳ Running...' : '▶ Run'}
+                </button>
+                <button 
+                  className="btn btn-success" 
+                  onClick={submitCode}
+                  disabled={submitting || locked}
+                  title="Submit code for evaluation"
+                >
+                  {submitting ? '⏳ Submitting...' : locked ? '✅ Submitted' : '✓ Submit'}
+                </button>
+              </div>
+            </div>
+            <div className="code-editor">
+              <textarea
+                className="code-textarea"
+                value={code}
+                onChange={(e) => setCode(e.target.value)}
+                style={{ fontSize: `${fontSize}px` }}
+                spellCheck="false"
+                disabled={locked}
+              />
+            </div>
+          </div>
+
+          {/* Output Section */}
+          <div 
+            className="resize-handle" 
+            onMouseDown={handleMouseDown('output')}
+            title="Drag to resize"
+          >
+            <div className="resize-handle-line"></div>
+          </div>
+          <div className="output-section" style={{ height: `${outputHeight}px` }}>
+            <div className="output-header">
+              <div className="output-tabs">
+                <button
+                  className={`output-tab ${activeTab === 'output' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('output')}
+                >
+                  Output
+                </button>
+                <button
+                  className={`output-tab ${activeTab === 'feedback' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('feedback')}
+                >
+                  Feedback
+                </button>
+              </div>
+            </div>
+
+            <div className="output-content">
+              {activeTab === 'output' ? (
+                <div className="output-display">
+                  <pre className={`output-text ${!output ? 'output-placeholder' : ''}`}>
+                    {output || 'Click "Run" or "Submit" to see results'}
+                  </pre>
+                  {locked && score !== null && (
+                    <div className="output-actions">
+                      <div className="score-badge">
+                        Score: {score}/60
+                      </div>
+                      <button className="btn btn-primary" onClick={onFinish}>
+                        Finish Subtopic →
+                      </button>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <div className="feedback-content">
+                  {score !== null && (
+                    <div className="score-display">
+                      <h3>Score: {score}/60</h3>
+                    </div>
+                  )}
+                  {feedback && (
+                    <div className="feedback-text">
+                      <h4>Evaluator Feedback:</h4>
+                      <p>{feedback}</p>
+                    </div>
+                  )}
+                  {!feedback && !locked && (
+                    <p className="output-placeholder">Submit your code to see feedback</p>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Resize Handle - Code/Chatbot */}
+        {showChatbot && (
+          <div 
+            className="vertical-resize-handle" 
+            onMouseDown={handleMouseDown('chatbot')}
+            title="Drag to resize"
+          />
+        )}
+
+        {/* RIGHT DRAWER - Chatbot */}
+        {showChatbot && (
+          <div className="chatbot-drawer">
+            <div className="chatbot-header">
+              <div className="chatbot-title">
+                <span>🤖</span>
+                <span>AI Assistant</span>
+              </div>
+              <button 
+                className="close-drawer-btn"
+                onClick={() => setShowChatbot(false)}
+                title="Close AI Assistant"
+              >
+                ✕
+              </button>
+            </div>
+            
+            <div className="chatbot-messages" ref={chatMessagesRef}>
+              {messages.map((message, idx) => (
+                <div key={idx} className={`message ${message.type}`}>
+                  <div className="message-avatar">
+                    {message.type === 'user' ? '👤' : '🤖'}
+                  </div>
+                  <div className="message-content">
+                    {formatMessageContent(message.text)}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="chatbot-input-container">
+              <div className="chatbot-input-wrapper">
+                <input
+                  type="text"
+                  className="chatbot-input"
+                  placeholder="Ask for hints..."
+                  value={chatInput}
+                  onChange={(e) => setChatInput(e.target.value)}
+                  onKeyPress={handleKeyPress}
+                />
+                <button
+                  className={`mic-btn ${isListening ? 'listening' : ''}`}
+                  onClick={startListening}
+                  title={isListening ? 'Stop listening' : 'Speak to AI'}
+                >
+                  🎤
+                </button>
+                <button className="send-btn" onClick={handleSendMessage}>
+                  Send
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,45 @@
+========================================
+UPLOAD TO GITHUB - SIMPLE STEPS
+========================================
+
+1. DELETE CSV FILE:
+   rm rishu.119484@stu.upes.ac.in_accessKeys.csv
+
+2. INITIALIZE GIT:
+   git init
+
+3. ADD FILES:
+   git add .
+
+4. CHECK STATUS:
+   git status
+   (Should NOT see: node_modules, .md files except README.md, .sh files, .csv files)
+
+5. CREATE GITHUB REPO:
+   - Go to: https://github.com/new
+   - Name: hackveda
+   - Visibility: PRIVATE
+   - Click "Create repository"
+
+6. CONNECT AND PUSH:
+   git remote add origin https://github.com/YOUR_USERNAME/hackveda.git
+   git commit -m "Initial commit for deployment"
+   git branch -M main
+   git push -u origin main
+
+7. DONE!
+   Your code is on GitHub with .env files included.
+   
+8. ON EC2:
+   git clone https://github.com/YOUR_USERNAME/hackveda.git
+   cd hackveda
+   # All .env files are already there!
+
+9. AFTER DEPLOYMENT (Clean up):
+   git rm backend/.env chatbotAWS/.env HackathonPDF/backend/.env
+   git commit -m "Remove .env files"
+   git push
+
+========================================
+IMPORTANT: Make repository PRIVATE!
+========================================

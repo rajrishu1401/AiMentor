@@ -1,0 +1,38 @@
+# Node modules (too large for GitHub)
+node_modules/
+*/node_modules/
+**/node_modules/
+
+# Build outputs (will be rebuilt on EC2)
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Temporary files
+tmp/
+temp/
+tmpclaude-*
+
+# PM2
+.pm2/
+
+# Documentation (not needed for deployment)
+*.md
+!README.md
+
+# Scripts (not needed for deployment)
+*.sh
+
+# CSV files (credentials)
+*.csv

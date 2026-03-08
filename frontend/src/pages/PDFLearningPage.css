@@ -1,0 +1,260 @@
+/* PDF Learning Page Styles */
+
+.pdf-learning-page {
+    position: relative;
+    min-height: 100vh;
+    background: #0a0a1a;
+    color: #e2e8f0;
+    overflow-x: hidden;
+}
+
+/* Back button */
+.pdf-back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    color: #e2e8f0;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.pdf-back-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(124, 58, 237, 0.4);
+    transform: translateX(-2px);
+}
+
+.pdf-content-wrapper {
+    position: relative;
+    z-index: 10;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+}
+
+/* Animated background orbs */
+.orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 0;
+    animation: floatOrb 8s ease-in-out infinite;
+}
+
+.orb-1 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.15), transparent 70%);
+    top: -100px;
+    left: -100px;
+}
+
+.orb-2 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.12), transparent 70%);
+    bottom: 100px;
+    right: -80px;
+    animation-delay: -4s;
+}
+
+.orb-3 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.08), transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: -2s;
+}
+
+@keyframes floatOrb {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(30px, -30px) scale(1.05);
+    }
+    66% {
+        transform: translate(-20px, 20px) scale(0.95);
+    }
+}
+
+/* Glass card effect */
+.pdf-glass-card {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+}
+
+.pdf-form-card {
+    padding: 32px;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.pdf-form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Form elements */
+.pdf-prompt-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pdf-prompt-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pdf-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #cbd5e1;
+}
+
+.pdf-char-count {
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+.pdf-char-limit {
+    color: #f87171;
+}
+
+.pdf-textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 12px 16px;
+    color: #e2e8f0;
+    font-size: 0.875rem;
+    resize: none;
+    transition: all 0.2s ease;
+}
+
+.pdf-textarea::placeholder {
+    color: #64748b;
+}
+
+.pdf-textarea:focus {
+    outline: none;
+    border-color: rgba(124, 58, 237, 0.6);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Glow button */
+.pdf-glow-btn {
+    width: 100%;
+    padding: 16px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #7c3aed 0%, #6366f1 100%);
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
+    transition: all 0.3s ease;
+}
+
+.pdf-glow-btn:hover:not(:disabled) {
+    box-shadow: 0 8px 30px rgba(124, 58, 237, 0.6);
+    transform: translateY(-2px);
+}
+
+.pdf-glow-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.pdf-glow-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pdf-btn-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.pdf-btn-badge {
+    font-size: 0.75rem;
+    font-weight: 400;
+    opacity: 0.7;
+    text-transform: capitalize;
+}
+
+.pdf-helper-text {
+    text-align: center;
+    color: #64748b;
+    font-size: 0.75rem;
+    margin: 0;
+}
+
+/* Footer */
+.pdf-footer {
+    text-align: center;
+    margin-top: 48px;
+    color: #475569;
+    font-size: 0.75rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .pdf-form-card {
+        padding: 24px;
+    }
+    
+    .pdf-content-wrapper {
+        padding: 0 16px 60px;
+    }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1e1e2e;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #7c3aed;
+    border-radius: 4px;
+}

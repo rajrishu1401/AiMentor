@@ -1,0 +1,319 @@
+{
+  "skills": [
+
+    {
+      "id": "variables_basic",
+      "category": "programming_basics",
+      "prerequisites": []
+    },
+
+    {
+      "id": "data_types_basic",
+      "category": "programming_basics",
+      "prerequisites": ["variables_basic"]
+    },
+
+    {
+      "id": "operators_basic",
+      "category": "programming_basics",
+      "prerequisites": ["data_types_basic"]
+    },
+
+    {
+      "id": "conditionals_basic",
+      "category": "programming_basics",
+      "prerequisites": ["operators_basic"]
+    },
+
+    {
+      "id": "loops_basic",
+      "category": "programming_basics",
+      "prerequisites": ["conditionals_basic"]
+    },
+
+    {
+      "id": "functions_basic",
+      "category": "programming_basics",
+      "prerequisites": ["variables_basic", "conditionals_basic"]
+    },
+
+
+
+    {
+      "id": "arrays_basic",
+      "category": "data_structures",
+      "prerequisites": ["loops_basic"]
+    },
+
+    {
+      "id": "strings_basic",
+      "category": "data_structures",
+      "prerequisites": ["arrays_basic"]
+    },
+
+
+
+    {
+      "id": "arrays",
+      "category": "data_structures",
+      "prerequisites": ["arrays_basic", "loops_basic"]
+    },
+
+    {
+      "id": "strings",
+      "category": "data_structures",
+      "prerequisites": ["strings_basic"]
+    },
+
+
+
+    {
+      "id": "linked_lists",
+      "category": "data_structures",
+      "prerequisites": ["arrays_basic"]
+    },
+
+    {
+      "id": "stacks",
+      "category": "data_structures",
+      "prerequisites": ["arrays_basic"]
+    },
+
+    {
+      "id": "queues",
+      "category": "data_structures",
+      "prerequisites": ["arrays_basic"]
+    },
+
+    {
+      "id": "hashing",
+      "category": "data_structures",
+      "prerequisites": ["arrays_basic"]
+    },
+
+
+
+    {
+      "id": "recursion",
+      "category": "algorithms",
+      "prerequisites": [
+        "functions_basic",
+        "loops_basic",
+        "conditionals_basic"
+      ]
+    },
+
+    {
+      "id": "backtracking",
+      "category": "algorithms",
+      "prerequisites": [
+        "recursion"
+      ]
+    },
+
+
+
+    {
+      "id": "sorting",
+      "category": "algorithms",
+      "prerequisites": ["arrays_basic", "loops_basic"]
+    },
+
+    {
+      "id": "binary_search",
+      "category": "algorithms",
+      "prerequisites": ["arrays", "sorting"]
+    },
+
+    {
+      "id": "sliding_window",
+      "category": "algorithms",
+      "prerequisites": ["arrays"]
+    },
+
+
+
+    {
+      "id": "trees",
+      "category": "data_structures",
+      "prerequisites": ["recursion", "arrays_basic"]
+    },
+
+    {
+      "id": "binary_search_trees",
+      "category": "data_structures",
+      "prerequisites": ["trees", "binary_search"]
+    },
+
+
+
+    {
+      "id": "heaps_priority_queue",
+      "category": "data_structures",
+      "prerequisites": ["trees"]
+    },
+
+    {
+      "id": "trie",
+      "category": "data_structures",
+      "prerequisites": ["trees", "strings"]
+    },
+
+
+
+    {
+      "id": "graphs",
+      "category": "data_structures",
+      "prerequisites": ["trees", "queues"]
+    },
+
+    {
+      "id": "topological_sort",
+      "category": "algorithms",
+      "prerequisites": ["graphs"]
+    },
+
+
+
+    {
+      "id": "union_find",
+      "category": "algorithms",
+      "prerequisites": ["graphs"]
+    },
+
+
+
+    {
+      "id": "shortest_path_algorithms",
+      "category": "algorithms",
+      "prerequisites": ["graphs", "heaps_priority_queue"]
+    },
+
+
+
+    {
+      "id": "minimum_spanning_tree",
+      "category": "algorithms",
+      "prerequisites": ["graphs", "union_find"]
+    },
+
+
+
+    {
+      "id": "dynamic_programming",
+      "category": "algorithms",
+      "prerequisites": [
+        "recursion",
+        "arrays_basic",
+        "time_complexity"
+      ]
+    },
+
+
+
+    {
+      "id": "greedy_algorithms",
+      "category": "algorithms",
+      "prerequisites": [
+        "arrays_basic",
+        "sorting"
+      ]
+    },
+
+
+
+    {
+      "id": "bit_manipulation",
+      "category": "algorithms",
+      "prerequisites": ["operators_basic"]
+    },
+
+    {
+      "id": "math_algorithms",
+      "category": "algorithms",
+      "prerequisites": ["operators_basic"]
+    },
+
+
+
+    {
+      "id": "time_complexity",
+      "category": "cs_fundamentals",
+      "prerequisites": ["loops_basic"]
+    },
+
+    {
+      "id": "space_complexity",
+      "category": "cs_fundamentals",
+      "prerequisites": ["arrays_basic"]
+    },
+
+    {
+      "id": "complexity_analysis",
+      "category": "cs_fundamentals",
+      "prerequisites": ["time_complexity", "space_complexity"]
+    },
+
+
+
+    {
+      "id": "object_oriented_programming",
+      "category": "cs_fundamentals",
+      "prerequisites": ["functions_basic"]
+    },
+
+
+
+    {
+      "id": "database_management_systems",
+      "category": "cs_fundamentals",
+      "prerequisites": ["data_types_basic"]
+    },
+
+
+
+    {
+      "id": "operating_systems",
+      "category": "cs_fundamentals",
+      "prerequisites": ["complexity_analysis"]
+    },
+
+
+
+    {
+      "id": "computer_networks",
+      "category": "cs_fundamentals",
+      "prerequisites": ["operating_systems"]
+    },
+
+
+
+    {
+      "id": "cloud_computing",
+      "category": "cloud",
+      "prerequisites": ["computer_networks"]
+    },
+
+
+
+    {
+      "id": "devops",
+      "category": "cloud",
+      "prerequisites": ["cloud_computing"]
+    },
+
+
+
+    {
+      "id": "system_design",
+      "category": "system_design",
+      "prerequisites": [
+        "database_management_systems",
+        "computer_networks",
+        "operating_systems",
+        "cloud_computing"
+      ]
+    }
+
+  ]
+}
