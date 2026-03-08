@@ -1,13 +1,10 @@
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient } from "@aws-sdk/lib-dynamodb";
-import { fromIni } from "@aws-sdk/credential-providers";
 
 // Create DynamoDB client
-// If running on EC2 with IAM role, credentials are automatic
-// If running locally, use AWS credentials from ~/.aws/credentials
+// AWS SDK will automatically use IAM role credentials when running on EC2
 const client = new DynamoDBClient({
-  region: process.env.AWS_REGION || "ap-south-1",
-  credentials: fromIni()
+  region: process.env.AWS_REGION || "ap-south-1"
 });
 
 // Create Document client for easier operations
