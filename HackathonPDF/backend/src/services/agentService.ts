@@ -113,19 +113,48 @@ export class AgentService {
         const response = await Promise.race([invokePromise, timeoutPromise]);
 
         let fullText = '';
+        let chunkCount = 0;
         if (response.completion) {
             for await (const event of response.completion) {
                 if (event.chunk?.bytes) {
-                    fullText += new TextDecoder('utf-8').decode(event.chunk.bytes);
+                    const chunk = new TextDecoder('utf-8').decode(event.chunk.bytes);
+                    fullText += chunk;
+                    chunkCount++;
                 }
             }
         }
+
+        logger.info('Bedrock agent response received', {
+            totalChunks: chunkCount,
+            totalLength: fullText.length,
+            firstChars: fullText.substring(0, 100),
+            lastChars: fullText.substring(Math.max(0, fullText.length - 100))
+        });
 
         if (!fullText) {
             throw new Error('Bedrock Agent returned an empty response');
         }
 
-        return fullText;
+        // Try to parse JSON response and extract content field
+        try {
+            const jsonResponse = JSON.parse(fullText);
+            if (jsonResponse.status === 'success' && jsonResponse.content) {
+                logger.info('Extracted content from JSON response', {
+                    contentLength: jsonResponse.content.length
+                });
+                return jsonResponse.content;
+            } else if (jsonResponse.status === 'not_found' && jsonResponse.message) {
+                return jsonResponse.message;
+            }
+            // If JSON doesn't have expected structure, return as-is
+            return fullText;
+        } catch (e) {
+            // If not valid JSON, return the raw text
+            logger.warning('Failed to parse JSON response, returning raw text', {
+                error: e instanceof Error ? e.message : String(e)
+            });
+            return fullText;
+        }
     }
 
     private buildContext(chunks: DocumentChunk[]): string {
