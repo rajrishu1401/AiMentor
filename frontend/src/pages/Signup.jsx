@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Auth.css";
 
-const API_BASE = "http://localhost:5012/api";
+const API_BASE = "http://13.232.0.142/api";
 
 async function registerUser(name, email, password) {
   const res = await fetch(`${API_BASE}/auth/register`, {

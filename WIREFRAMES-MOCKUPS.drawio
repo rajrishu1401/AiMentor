@@ -1,0 +1,860 @@
+<mxfile host="app.diagrams.net" modified="2026-03-08T00:00:00.000Z" agent="Kiro" version="21.0.0">
+  <diagram name="Wireframes - HackVeda AI" id="wireframes">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3000" pageHeight="2400">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title -->
+        <mxCell id="title" value="HackVeda AI - Wireframes &amp; Mockups" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=28;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1000" y="20" width="600" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- ========== LOGIN PAGE ========== -->
+        <mxCell id="login-frame" value="1. Login / Signup Page" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;verticalAlign=top;fontSize=16;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="80" y="100" width="400" height="600" as="geometry" />
+        </mxCell>
+        
+        <!-- Login Header -->
+        <mxCell id="login-header" value="HackVeda AI" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#a855f7;strokeColor=none;fontSize=20;fontStyle=1;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="80" y="100" width="400" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Login Form -->
+        <mxCell id="login-form-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656" vertex="1" parent="1">
+          <mxGeometry x="120" y="220" width="320" height="380" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="login-title" value="Welcome Back" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=22;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="120" y="240" width="320" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="login-subtitle" value="Sign in to continue learning" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontColor=#666666" vertex="1" parent="1">
+          <mxGeometry x="120" y="280" width="320" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Email Input -->
+        <mxCell id="email-label" value="Email" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="140" y="330" width="280" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="email-input" value="your@email.com" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;fontSize=12;align=left;spacingLeft=10;fontColor=#999999" vertex="1" parent="1">
+          <mxGeometry x="140" y="355" width="280" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Password Input -->
+        <mxCell id="password-label" value="Password" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="140" y="415" width="280" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="password-input" value="••••••••" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;fontSize=12;align=left;spacingLeft=10" vertex="1" parent="1">
+          <mxGeometry x="140" y="440" width="280" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Login Button -->
+        <mxCell id="login-btn" value="Sign In" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a855f7;strokeColor=none;fontSize=14;fontStyle=1;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="140" y="510" width="280" height="45" as="geometry" />
+        </mxCell>
+        
+        <!-- Signup Link -->
+        <mxCell id="signup-link" value="Don't have an account? Sign Up" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontColor=#a855f7;textDecoration=underline" vertex="1" parent="1">
+          <mxGeometry x="140" y="565" width="280" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- ========== DASHBOARD ========== -->
+        <mxCell id="dashboard-frame" value="2. Dashboard" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;verticalAlign=top;fontSize=16;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="560" y="100" width="900" height="600" as="geometry" />
+        </mxCell>
+        
+        <!-- Dashboard Header -->
+        <mxCell id="dash-header" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0a0a0a;strokeColor=none" vertex="1" parent="1">
+          <mxGeometry x="560" y="100" width="900" height="70" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="dash-logo" value="🎓 HackVeda AI" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=18;fontStyle=1;fontColor=#ffffff;spacingLeft=20" vertex="1" parent="1">
+          <mxGeometry x="560" y="100" width="300" height="70" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="dash-user" value="👤 John Doe" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=14;fontColor=#ffffff;spacingRight=20" vertex="1" parent="1">
+          <mxGeometry x="1260" y="100" width="200" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Welcome Section -->
+        <mxCell id="welcome-section" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a1a2e;strokeColor=#a855f7" vertex="1" parent="1">
+          <mxGeometry x="590" y="200" width="840" height="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="welcome-text" value="Welcome back, John! 👋" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=20;fontStyle=1;fontColor=#ffffff;spacingLeft=20;spacingTop=15" vertex="1" parent="1">
+          <mxGeometry x="590" y="200" width="840" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="welcome-subtitle" value="Continue your learning journey" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=14;fontColor=#cccccc;spacingLeft=20" vertex="1" parent="1">
+          <mxGeometry x="590" y="240" width="840" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Feature Cards -->
+        <mxCell id="features-title" value="Features" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=18;fontStyle=1;spacingLeft=10" vertex="1" parent="1">
+          <mxGeometry x="590" y="330" width="200" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Card 1: Learning Roadmaps -->
+        <mxCell id="card-roadmap" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366" vertex="1" parent="1">
+          <mxGeometry x="590" y="370" width="200" height="140" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="card-roadmap-icon" value="🗺️" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=40" vertex="1" parent="1">
+          <mxGeometry x="590" y="380" width="200" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="card-roadmap-title" value="Learning Roadmaps" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="590" y="440" width="200" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="card-roadmap-desc" value="AI-generated paths" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontColor=#666666" vertex="1" parent="1">
+          <mxGeometry x="590" y="470" width="200" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Card 2: Coding Challenges -->
+        <mxCell id="card-coding" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00" vertex="1" parent="1">
+          <mxGeometry x="820" y="370" width="200" height="140" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="card-coding-icon" value="💻" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=40" vertex="1" parent="1">
+          <mxGeometry x="820" y="380" width="200" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="card-coding-title" value="Coding Challenges" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="820" y="440" width="200" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="card-coding-desc" value="Practice &amp; improve" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontColor=#666666" vertex="1" parent="1">
+          <mxGeometry x="820" y="470" width="200" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Card 3: PDF Learning -->
+        <mxCell id="card-pdf" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf" vertex="1" parent="1">
+          <mxGeometry x="1050" y="370" width="200" height="140" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="card-pdf-icon" value="📄" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=40" vertex="1" parent="1">
+          <mxGeometry x="1050" y="380" width="200" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="card-pdf-title" value="PDF Learning" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1050" y="440" width="200" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="card-pdf-desc" value="Learn from documents" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontColor=#666666" vertex="1" parent="1">
+          <mxGeometry x="1050" y="470" width="200" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Card 4: AI Mentor -->
+        <mxCell id="card-mentor" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6" vertex="1" parent="1">
+          <mxGeometry x="1280" y="370" width="150" height="140" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="card-mentor-icon" value="🤖" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=40" vertex="1" parent="1">
+          <mxGeometry x="1280" y="380" width="150" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="card-mentor-title" value="AI Mentor" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1280" y="440" width="150" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="card-mentor-desc" value="24/7 assistance" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontColor=#666666" vertex="1" parent="1">
+          <mxGeometry x="1280" y="470" width="150" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Recent Activity -->
+        <mxCell id="recent-title" value="Recent Activity" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=18;fontStyle=1;spacingLeft=10" vertex="1" parent="1">
+          <mxGeometry x="590" y="540" width="200" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="activity-item" value="✓ Completed: JavaScript Basics - Variables" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;fontSize=12;align=left;spacingLeft=15" vertex="1" parent="1">
+          <mxGeometry x="590" y="580" width="840" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="activity-item2" value="📝 In Progress: React Hooks - useEffect" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;fontSize=12;align=left;spacingLeft=15" vertex="1" parent="1">
+          <mxGeometry x="590" y="630" width="840" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- ========== LEARNING ROADMAP PAGE ========== -->
+        <mxCell id="roadmap-frame" value="3. Learning Roadmap Page" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;verticalAlign=top;fontSize=16;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="80" y="760" width="900" height="700" as="geometry" />
+        </mxCell>
+        
+        <!-- Roadmap Header -->
+        <mxCell id="roadmap-header" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0a0a0a;strokeColor=none" vertex="1" parent="1">
+          <mxGeometry x="80" y="760" width="900" height="70" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="roadmap-back" value="← Back" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#333333;strokeColor=none;fontSize=12;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="100" y="780" width="80" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="roadmap-title-text" value="JavaScript Fundamentals" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="200" y="760" width="600" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Progress Bar -->
+        <mxCell id="progress-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#333333;strokeColor=none" vertex="1" parent="1">
+          <mxGeometry x="110" y="860" width="840" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="progress-bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a855f7;strokeColor=none" vertex="1" parent="1">
+          <mxGeometry x="110" y="860" width="420" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="progress-text" value="50% Complete" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="110" y="860" width="840" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Topics List -->
+        <mxCell id="topics-title" value="Topics" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=18;fontStyle=1;spacingLeft=20" vertex="1" parent="1">
+          <mxGeometry x="110" y="920" width="200" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Topic 1 -->
+        <mxCell id="topic1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366" vertex="1" parent="1">
+          <mxGeometry x="110" y="970" width="840" height="120" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="topic1-title" value="1. Variables and Data Types" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=16;fontStyle=1;spacingLeft=15;spacingTop=10" vertex="1" parent="1">
+          <mxGeometry x="110" y="970" width="700" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="topic1-status" value="✓ Completed" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=top;fontSize=12;fontColor=#22c55e;spacingRight=15;spacingTop=10;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="810" y="970" width="140" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="topic1-subtopics" value="Subtopics: var, let, const • Primitive types • Type conversion" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=11;fontColor=#666666;spacingLeft=15" vertex="1" parent="1">
+          <mxGeometry x="110" y="1010" width="840" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="topic1-btn" value="Review" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#82b366;strokeColor=none;fontSize=12;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="130" y="1050" width="100" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Topic 2 -->
+        <mxCell id="topic2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656" vertex="1" parent="1">
+          <mxGeometry x="110" y="1110" width="840" height="120" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="topic2-title" value="2. Functions and Scope" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=16;fontStyle=1;spacingLeft=15;spacingTop=10" vertex="1" parent="1">
+          <mxGeometry x="110" y="1110" width="700" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="topic2-status" value="⏳ In Progress" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=top;fontSize=12;fontColor=#f59e0b;spacingRight=15;spacingTop=10;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="810" y="1110" width="140" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="topic2-subtopics" value="Subtopics: Function declaration • Arrow functions • Closures" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=11;fontColor=#666666;spacingLeft=15" vertex="1" parent="1">
+          <mxGeometry x="110" y="1150" width="840" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="topic2-btn" value="Continue" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a855f7;strokeColor=none;fontSize=12;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="130" y="1190" width="100" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Topic 3 -->
+        <mxCell id="topic3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc" vertex="1" parent="1">
+          <mxGeometry x="110" y="1250" width="840" height="120" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="topic3-title" value="3. Arrays and Objects" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=16;fontStyle=1;spacingLeft=15;spacingTop=10;fontColor=#999999" vertex="1" parent="1">
+          <mxGeometry x="110" y="1250" width="700" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="topic3-status" value="🔒 Locked" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=top;fontSize=12;fontColor=#999999;spacingRight=15;spacingTop=10;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="810" y="1250" width="140" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="topic3-subtopics" value="Subtopics: Array methods • Object properties • Destructuring" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=11;fontColor=#999999;spacingLeft=15" vertex="1" parent="1">
+          <mxGeometry x="110" y="1290" width="840" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="topic3-btn" value="Locked" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=none;fontSize=12;fontColor=#666666" vertex="1" parent="1">
+          <mxGeometry x="130" y="1330" width="100" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ========== LESSON PAGE ========== -->
+        <mxCell id="lesson-frame" value="4. Lesson Page" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;verticalAlign=top;fontSize=16;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="1060" y="760" width="800" height="700" as="geometry" />
+        </mxCell>
+        
+        <!-- Lesson Header -->
+        <mxCell id="lesson-header" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0a0a0a;strokeColor=none" vertex="1" parent="1">
+          <mxGeometry x="1060" y="760" width="800" height="70" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="lesson-back" value="← Back" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#333333;strokeColor=none;fontSize=12;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="1080" y="780" width="80" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="lesson-title-text" value="Arrow Functions" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="1180" y="760" width="500" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Lesson Content -->
+        <mxCell id="lesson-content-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc" vertex="1" parent="1">
+          <mxGeometry x="1090" y="860" width="740" height="450" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="lesson-heading" value="What are Arrow Functions?" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=18;fontStyle=1;spacingLeft=20;spacingTop=15" vertex="1" parent="1">
+          <mxGeometry x="1090" y="860" width="740" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="lesson-text" value="Arrow functions are a concise way to write function expressions in JavaScript. They were introduced in ES6 and provide a shorter syntax compared to traditional function expressions.&#xa;&#xa;Key Features:&#xa;• Shorter syntax&#xa;• Lexical 'this' binding&#xa;• Cannot be used as constructors&#xa;• No 'arguments' object" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=13;spacingLeft=20;spacingTop=5;whiteSpace=wrap" vertex="1" parent="1">
+          <mxGeometry x="1090" y="910" width="740" height="150" as="geometry" />
+        </mxCell>
+        
+        <!-- Code Example -->
+        <mxCell id="code-example-title" value="Example:" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=14;fontStyle=1;spacingLeft=20" vertex="1" parent="1">
+          <mxGeometry x="1090" y="1070" width="740" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="code-block" value="// Traditional function&#xa;function add(a, b) {&#xa;  return a + b;&#xa;}&#xa;&#xa;// Arrow function&#xa;const add = (a, b) => a + b;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a1a2e;strokeColor=#a855f7;fontSize=12;fontColor=#e5e7eb;align=left;spacingLeft=15;spacingTop=10;fontFamily=Courier New" vertex="1" parent="1">
+          <mxGeometry x="1110" y="1110" width="700" height="140" as="geometry" />
+        </mxCell>
+        
+        <!-- YouTube Section -->
+        <mxCell id="youtube-title" value="📺 Watch Video Tutorial" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=14;fontStyle=1;spacingLeft=20" vertex="1" parent="1">
+          <mxGeometry x="1090" y="1270" width="740" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Action Buttons -->
+        <mxCell id="lesson-complete-btn" value="Mark as Complete" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#22c55e;strokeColor=none;fontSize=14;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1090" y="1350" width="200" height="45" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="lesson-quiz-btn" value="Take Quiz →" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a855f7;strokeColor=none;fontSize=14;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1310" y="1350" width="200" height="45" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="lesson-ai-btn" value="🤖 Ask AI Mentor" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#333333;strokeColor=none;fontSize=14;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="1530" y="1350" width="300" height="45" as="geometry" />
+        </mxCell>
+
+        <!-- ========== QUIZ PAGE ========== -->
+        <mxCell id="quiz-frame" value="5. Quiz Page" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;verticalAlign=top;fontSize=16;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="80" y="1520" width="900" height="800" as="geometry" />
+        </mxCell>
+        
+        <!-- Quiz Header -->
+        <mxCell id="quiz-header" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0a0a0a;strokeColor=none" vertex="1" parent="1">
+          <mxGeometry x="80" y="1520" width="900" height="70" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="quiz-back" value="← Back" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#333333;strokeColor=none;fontSize=12;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="100" y="1540" width="80" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="quiz-title-text" value="Quiz: Arrow Functions" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="200" y="1520" width="600" height="70" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="quiz-ai-btn" value="🤖 AI Assistant 🔒" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#666666;strokeColor=none;fontSize=12;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="820" y="1540" width="140" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Question 1 -->
+        <mxCell id="q1-card" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#a855f7" vertex="1" parent="1">
+          <mxGeometry x="110" y="1620" width="840" height="280" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="q1-text" value="Q1. What is the main advantage of arrow functions?" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=14;fontStyle=1;spacingLeft=15;spacingTop=15" vertex="1" parent="1">
+          <mxGeometry x="110" y="1620" width="840" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Options -->
+        <mxCell id="q1-opt1" value="○ They are faster than regular functions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;fontSize=12;align=left;spacingLeft=15" vertex="1" parent="1">
+          <mxGeometry x="130" y="1680" width="800" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="q1-opt2" value="● Shorter syntax and lexical 'this' binding" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;align=left;spacingLeft=15;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="130" y="1730" width="800" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="q1-opt3" value="○ They can be used as constructors" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;fontSize=12;align=left;spacingLeft=15" vertex="1" parent="1">
+          <mxGeometry x="130" y="1780" width="800" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="q1-opt4" value="○ They have their own 'arguments' object" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;fontSize=12;align=left;spacingLeft=15" vertex="1" parent="1">
+          <mxGeometry x="130" y="1830" width="800" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Question 2 -->
+        <mxCell id="q2-card" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc" vertex="1" parent="1">
+          <mxGeometry x="110" y="1930" width="840" height="280" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="q2-text" value="Q2. Which syntax is correct for an arrow function?" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=14;fontStyle=1;spacingLeft=15;spacingTop=15" vertex="1" parent="1">
+          <mxGeometry x="110" y="1930" width="840" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="q2-opt1" value="○ const func = () => { return value; }" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;fontSize=12;align=left;spacingLeft=15" vertex="1" parent="1">
+          <mxGeometry x="130" y="1990" width="800" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="q2-opt2" value="○ const func => () { return value; }" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;fontSize=12;align=left;spacingLeft=15" vertex="1" parent="1">
+          <mxGeometry x="130" y="2040" width="800" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="q2-opt3" value="○ function func = () => value" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;fontSize=12;align=left;spacingLeft=15" vertex="1" parent="1">
+          <mxGeometry x="130" y="2090" width="800" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="q2-opt4" value="○ const func() => return value" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;fontSize=12;align=left;spacingLeft=15" vertex="1" parent="1">
+          <mxGeometry x="130" y="2140" width="800" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Submit Button -->
+        <mxCell id="quiz-submit-btn" value="Submit Quiz" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a855f7;strokeColor=none;fontSize=16;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="380" y="2250" width="200" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ========== QUIZ RESULTS PAGE ========== -->
+        <mxCell id="results-frame" value="6. Quiz Results Page" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;verticalAlign=top;fontSize=16;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="1060" y="1520" width="800" height="800" as="geometry" />
+        </mxCell>
+        
+        <!-- Results Header -->
+        <mxCell id="results-header" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0a0a0a;strokeColor=none" vertex="1" parent="1">
+          <mxGeometry x="1060" y="1520" width="800" height="70" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="results-title-text" value="Quiz: Arrow Functions" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="1060" y="1520" width="700" height="70" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="results-ai-btn" value="🤖 AI Assistant" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a855f7;strokeColor=none;fontSize=12;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="1780" y="1540" width="140" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Score Card -->
+        <mxCell id="score-card" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a1a2e;strokeColor=#a855f7" vertex="1" parent="1">
+          <mxGeometry x="1260" y="1640" width="400" height="200" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="score-title" value="Quiz Complete!" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=22;fontStyle=1;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="1260" y="1660" width="400" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="score-value" value="80" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=60;fontStyle=1;fontColor=#a855f7" vertex="1" parent="1">
+          <mxGeometry x="1260" y="1710" width="400" height="70" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="score-label" value="Total Score" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontColor=#cccccc" vertex="1" parent="1">
+          <mxGeometry x="1260" y="1790" width="400" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Question Results -->
+        <mxCell id="q1-result-card" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#22c55e" vertex="1" parent="1">
+          <mxGeometry x="1090" y="1880" width="740" height="180" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="q1-result-text" value="Q1. What is the main advantage of arrow functions?" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=13;fontStyle=1;spacingLeft=15;spacingTop=15" vertex="1" parent="1">
+          <mxGeometry x="1090" y="1880" width="740" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="q1-result-status" value="✅ Correct" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=13;fontStyle=1;fontColor=#22c55e;spacingLeft=15" vertex="1" parent="1">
+          <mxGeometry x="1090" y="1920" width="740" height="25" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="q1-result-explanation" value="Explanation: Arrow functions provide a shorter syntax and lexical 'this' binding, making them ideal for callbacks and functional programming." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=11;fontColor=#666666;spacingLeft=15;whiteSpace=wrap" vertex="1" parent="1">
+          <mxGeometry x="1090" y="1955" width="740" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="q1-result-score" value="Score: 40 points" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=11;fontStyle=1;fontColor=#666666;spacingLeft=15" vertex="1" parent="1">
+          <mxGeometry x="1090" y="2020" width="740" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- Question 2 Result -->
+        <mxCell id="q2-result-card" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#ef4444" vertex="1" parent="1">
+          <mxGeometry x="1090" y="2090" width="740" height="180" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="q2-result-text" value="Q2. Which syntax is correct for an arrow function?" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=13;fontStyle=1;spacingLeft=15;spacingTop=15" vertex="1" parent="1">
+          <mxGeometry x="1090" y="2090" width="740" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="q2-result-status" value="❌ Incorrect" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=13;fontStyle=1;fontColor=#ef4444;spacingLeft=15" vertex="1" parent="1">
+          <mxGeometry x="1090" y="2130" width="740" height="25" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="q2-result-explanation" value="Explanation: The correct syntax is 'const func = () => { return value; }'. Arrow functions use the '=>' operator after the parameter list." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=11;fontColor=#666666;spacingLeft=15;whiteSpace=wrap" vertex="1" parent="1">
+          <mxGeometry x="1090" y="2165" width="740" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="q2-result-score" value="Score: 0 points" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=11;fontStyle=1;fontColor=#666666;spacingLeft=15" vertex="1" parent="1">
+          <mxGeometry x="1090" y="2230" width="740" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- Next Button -->
+        <mxCell id="results-next-btn" value="Next →" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a855f7;strokeColor=none;fontSize=16;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1360" y="2290" width="200" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ========== CODING CHALLENGE PAGE ========== -->
+        <mxCell id="coding-frame" value="7. Coding Challenge Page" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;verticalAlign=top;fontSize=16;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="80" y="2380" width="1200" height="800" as="geometry" />
+        </mxCell>
+        
+        <!-- Coding Header -->
+        <mxCell id="coding-header" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0a0a0a;strokeColor=none" vertex="1" parent="1">
+          <mxGeometry x="80" y="2380" width="1200" height="70" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="coding-back" value="← Back" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#333333;strokeColor=none;fontSize=12;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="100" y="2400" width="80" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="coding-title-text" value="Coding Challenge: Sum of Two Numbers" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="200" y="2380" width="900" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Split Layout -->
+        <!-- Left: Problem Description -->
+        <mxCell id="problem-panel" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;verticalAlign=top" vertex="1" parent="1">
+          <mxGeometry x="110" y="2480" width="550" height="650" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="problem-title" value="Problem Description" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=16;fontStyle=1;spacingLeft=15;spacingTop=15" vertex="1" parent="1">
+          <mxGeometry x="110" y="2480" width="550" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="problem-text" value="Write a function that takes two numbers as parameters and returns their sum.&#xa;&#xa;Function Signature:&#xa;function add(a, b)&#xa;&#xa;Constraints:&#xa;• -1000 ≤ a, b ≤ 1000&#xa;• Return type: number" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=12;spacingLeft=15;whiteSpace=wrap" vertex="1" parent="1">
+          <mxGeometry x="110" y="2530" width="550" height="150" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="examples-title" value="Examples:" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=14;fontStyle=1;spacingLeft=15" vertex="1" parent="1">
+          <mxGeometry x="110" y="2700" width="550" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="example1" value="Input: a = 5, b = 3&#xa;Output: 8" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;fontSize=11;align=left;spacingLeft=10;fontFamily=Courier New" vertex="1" parent="1">
+          <mxGeometry x="130" y="2740" width="510" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="example2" value="Input: a = -10, b = 20&#xa;Output: 10" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;fontSize=11;align=left;spacingLeft=10;fontFamily=Courier New" vertex="1" parent="1">
+          <mxGeometry x="130" y="2810" width="510" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="testcases-title" value="Test Cases: 5 / 10 passed" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=14;fontStyle=1;spacingLeft=15;fontColor=#f59e0b" vertex="1" parent="1">
+          <mxGeometry x="110" y="2890" width="550" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="testcase-status" value="✓ Test 1: Passed&#xa;✓ Test 2: Passed&#xa;✗ Test 3: Failed (Expected: 0, Got: undefined)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=11;spacingLeft=15;fontFamily=Courier New;whiteSpace=wrap" vertex="1" parent="1">
+          <mxGeometry x="110" y="2930" width="550" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Right: Code Editor -->
+        <mxCell id="editor-panel" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a1a2e;strokeColor=#a855f7;verticalAlign=top" vertex="1" parent="1">
+          <mxGeometry x="690" y="2480" width="560" height="550" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="editor-header" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0f0f1e;strokeColor=none" vertex="1" parent="1">
+          <mxGeometry x="690" y="2480" width="560" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="editor-lang" value="JavaScript" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=12;fontColor=#ffffff;spacingLeft=15;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="690" y="2480" width="200" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="editor-run" value="▶ Run Code" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#22c55e;strokeColor=none;fontSize=11;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1050" y="2490" width="90" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="editor-submit" value="Submit" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a855f7;strokeColor=none;fontSize=11;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1160" y="2490" width="70" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="code-editor" value="function add(a, b) {&#xa;  // Write your code here&#xa;  &#xa;  &#xa;  &#xa;  &#xa;  &#xa;  &#xa;  &#xa;  &#xa;  &#xa;  &#xa;  &#xa;  &#xa;  &#xa;}" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=13;fontColor=#e5e7eb;spacingLeft=15;spacingTop=10;fontFamily=Courier New;whiteSpace=wrap" vertex="1" parent="1">
+          <mxGeometry x="690" y="2530" width="560" height="500" as="geometry" />
+        </mxCell>
+        
+        <!-- Output Console -->
+        <mxCell id="console-panel" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0f0f1e;strokeColor=#666666;verticalAlign=top" vertex="1" parent="1">
+          <mxGeometry x="690" y="3050" width="560" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="console-title" value="Output:" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=12;fontStyle=1;fontColor=#ffffff;spacingLeft=15;spacingTop=10" vertex="1" parent="1">
+          <mxGeometry x="690" y="3050" width="560" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="console-output" value="Running test cases..." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=11;fontColor=#22c55e;spacingLeft=15;fontFamily=Courier New" vertex="1" parent="1">
+          <mxGeometry x="690" y="3090" width="560" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ========== PDF LEARNING PAGE ========== -->
+        <mxCell id="pdf-frame" value="8. PDF Learning Page" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;verticalAlign=top;fontSize=16;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="1360" y="2380" width="800" height="800" as="geometry" />
+        </mxCell>
+        
+        <!-- PDF Header -->
+        <mxCell id="pdf-header" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0a0a0a;strokeColor=none" vertex="1" parent="1">
+          <mxGeometry x="1360" y="2380" width="800" height="70" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="pdf-logo" value="📄 PDF Learning Assistant" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="1360" y="2380" width="800" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Upload Section -->
+        <mxCell id="upload-section" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#a855f7;dashed=1;dashPattern=8 8" vertex="1" parent="1">
+          <mxGeometry x="1420" y="2500" width="680" height="200" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="upload-icon" value="📤" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=60" vertex="1" parent="1">
+          <mxGeometry x="1420" y="2520" width="680" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="upload-text" value="Drag &amp; Drop PDF here" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=18;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1420" y="2610" width="680" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="upload-or" value="or" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontColor=#666666" vertex="1" parent="1">
+          <mxGeometry x="1420" y="2645" width="680" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="upload-btn" value="Browse Files" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a855f7;strokeColor=none;fontSize=14;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1660" y="2670" width="200" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Intent Selection -->
+        <mxCell id="intent-title" value="What would you like to do?" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=18;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1420" y="2740" width="680" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Intent Buttons -->
+        <mxCell id="intent-teach" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6" vertex="1" parent="1">
+          <mxGeometry x="1420" y="2800" width="320" height="120" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="intent-teach-icon" value="📚" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=40" vertex="1" parent="1">
+          <mxGeometry x="1420" y="2810" width="320" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="intent-teach-title" value="Teach Me" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=16;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1420" y="2870" width="320" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="intent-teach-desc" value="Get detailed explanations" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontColor=#666666" vertex="1" parent="1">
+          <mxGeometry x="1420" y="2895" width="320" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="intent-plan" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366" vertex="1" parent="1">
+          <mxGeometry x="1780" y="2800" width="320" height="120" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="intent-plan-icon" value="🗺️" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=40" vertex="1" parent="1">
+          <mxGeometry x="1780" y="2810" width="320" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="intent-plan-title" value="Create Plan" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=16;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1780" y="2870" width="320" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="intent-plan-desc" value="Generate learning roadmap" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontColor=#666666" vertex="1" parent="1">
+          <mxGeometry x="1780" y="2895" width="320" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="intent-quiz" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00" vertex="1" parent="1">
+          <mxGeometry x="1420" y="2950" width="320" height="120" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="intent-quiz-icon" value="❓" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=40" vertex="1" parent="1">
+          <mxGeometry x="1420" y="2960" width="320" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="intent-quiz-title" value="Generate Quiz" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=16;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1420" y="3020" width="320" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="intent-quiz-desc" value="Test your knowledge" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontColor=#666666" vertex="1" parent="1">
+          <mxGeometry x="1420" y="3045" width="320" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="intent-summary" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf" vertex="1" parent="1">
+          <mxGeometry x="1780" y="2950" width="320" height="120" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="intent-summary-icon" value="📝" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=40" vertex="1" parent="1">
+          <mxGeometry x="1780" y="2960" width="320" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="intent-summary-title" value="Summarize" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=16;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1780" y="3020" width="320" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="intent-summary-desc" value="Get concise summary" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontColor=#666666" vertex="1" parent="1">
+          <mxGeometry x="1780" y="3045" width="320" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Output Preview -->
+        <mxCell id="output-preview" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;verticalAlign=top" vertex="1" parent="1">
+          <mxGeometry x="1420" y="3100" width="680" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="output-text" value="Output will appear here after processing..." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontColor=#999999" vertex="1" parent="1">
+          <mxGeometry x="1420" y="3115" width="680" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ========== AI CHATBOT DRAWER ========== -->
+        <mxCell id="chatbot-frame" value="9. AI Chatbot Drawer" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;verticalAlign=top;fontSize=16;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="2240" y="2380" width="450" height="800" as="geometry" />
+        </mxCell>
+        
+        <!-- Chatbot Container -->
+        <mxCell id="chatbot-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a1a2e;strokeColor=#a855f7;verticalAlign=top" vertex="1" parent="1">
+          <mxGeometry x="2270" y="2420" width="390" height="720" as="geometry" />
+        </mxCell>
+        
+        <!-- Chatbot Header -->
+        <mxCell id="chatbot-header-bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0f0f1e;strokeColor=none" vertex="1" parent="1">
+          <mxGeometry x="2270" y="2420" width="390" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="chatbot-header-title" value="🤖 AI Learning Assistant" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=16;fontStyle=1;fontColor=#ffffff;spacingLeft=15" vertex="1" parent="1">
+          <mxGeometry x="2270" y="2420" width="300" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="chatbot-close" value="✕" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#333333;strokeColor=none;fontSize=18;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="2610" y="2435" width="35" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Chat Messages -->
+        <mxCell id="chat-messages-area" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1a1a2e;strokeColor=none;verticalAlign=top" vertex="1" parent="1">
+          <mxGeometry x="2270" y="2490" width="390" height="550" as="geometry" />
+        </mxCell>
+        
+        <!-- Bot Message 1 -->
+        <mxCell id="bot-msg1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2a2a3e;strokeColor=#666666;align=left;verticalAlign=top" vertex="1" parent="1">
+          <mxGeometry x="2290" y="2510" width="320" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="bot-msg1-text" value="Hi! I'm your learning assistant. I can help you understand concepts, answer questions, and guide you through your learning journey. How can I help you today?" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=11;fontColor=#e5e7eb;spacingLeft=10;spacingTop=10;whiteSpace=wrap" vertex="1" parent="1">
+          <mxGeometry x="2290" y="2510" width="320" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- User Message -->
+        <mxCell id="user-msg1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a855f7;strokeColor=none;align=left;verticalAlign=top" vertex="1" parent="1">
+          <mxGeometry x="2340" y="2610" width="320" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="user-msg1-text" value="Can you explain arrow functions?" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=11;fontColor=#ffffff;spacingLeft=10;spacingTop=10;whiteSpace=wrap" vertex="1" parent="1">
+          <mxGeometry x="2340" y="2610" width="320" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Bot Message 2 -->
+        <mxCell id="bot-msg2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2a2a3e;strokeColor=#666666;align=left;verticalAlign=top" vertex="1" parent="1">
+          <mxGeometry x="2290" y="2680" width="320" height="150" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="bot-msg2-text" value="Arrow functions are a concise way to write functions in JavaScript. Here's what makes them special:&#xa;&#xa;1. Shorter syntax&#xa;2. Lexical 'this' binding&#xa;3. Cannot be used as constructors&#xa;&#xa;Example:&#xa;const add = (a, b) => a + b;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=11;fontColor=#e5e7eb;spacingLeft=10;spacingTop=10;whiteSpace=wrap;fontFamily=Courier New" vertex="1" parent="1">
+          <mxGeometry x="2290" y="2680" width="320" height="150" as="geometry" />
+        </mxCell>
+        
+        <!-- Typing Indicator -->
+        <mxCell id="typing-indicator" value="AI is typing..." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#999999;spacingLeft=10;fontStyle=2" vertex="1" parent="1">
+          <mxGeometry x="2290" y="2850" width="320" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Input Area -->
+        <mxCell id="chat-input-area" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0f0f1e;strokeColor=#666666;verticalAlign=top" vertex="1" parent="1">
+          <mxGeometry x="2270" y="3050" width="390" height="90" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="chat-input-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2a2a3e;strokeColor=#666666;align=left;verticalAlign=top" vertex="1" parent="1">
+          <mxGeometry x="2290" y="3070" width="280" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="chat-input-placeholder" value="Ask me anything..." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=12;fontColor=#666666;spacingLeft=10" vertex="1" parent="1">
+          <mxGeometry x="2290" y="3070" width="280" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="chat-send-btn" value="Send" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a855f7;strokeColor=none;fontSize=12;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="2590" y="3080" width="60" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- ========== KNOWLEDGE GRAPH ========== -->
+        <mxCell id="graph-frame" value="10. Knowledge Graph" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;verticalAlign=top;fontSize=16;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="80" y="3240" width="900" height="600" as="geometry" />
+        </mxCell>
+        
+        <!-- Graph Header -->
+        <mxCell id="graph-header" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0a0a0a;strokeColor=none" vertex="1" parent="1">
+          <mxGeometry x="80" y="3240" width="900" height="70" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="graph-title-text" value="Knowledge Graph - JavaScript" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="80" y="3240" width="900" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Graph Canvas -->
+        <mxCell id="graph-canvas" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a1a2e;strokeColor=#666666" vertex="1" parent="1">
+          <mxGeometry x="110" y="3340" width="840" height="460" as="geometry" />
+        </mxCell>
+        
+        <!-- Skill Nodes -->
+        <mxCell id="node-variables" value="Variables" style="ellipse;whiteSpace=wrap;html=1;fillColor=#22c55e;strokeColor=none;fontSize=12;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="200" y="3450" width="120" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="node-functions" value="Functions" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f59e0b;strokeColor=none;fontSize=12;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="400" y="3450" width="120" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="node-arrays" value="Arrays" style="ellipse;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=none;fontSize=12;fontColor=#666666;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="600" y="3450" width="120" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="node-objects" value="Objects" style="ellipse;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=none;fontSize=12;fontColor=#666666;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="400" y="3600" width="120" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="node-async" value="Async/Await" style="ellipse;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=none;fontSize=12;fontColor=#666666;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="600" y="3600" width="120" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Connections -->
+        <mxCell id="edge-var-func" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#666666;dashed=1" edge="1" parent="1" source="node-variables" target="node-functions">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-func-arrays" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#666666;dashed=1" edge="1" parent="1" source="node-functions" target="node-arrays">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-func-objects" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#666666;dashed=1" edge="1" parent="1" source="node-functions" target="node-objects">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-objects-async" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#666666;dashed=1" edge="1" parent="1" source="node-objects" target="node-async">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Legend -->
+        <mxCell id="graph-legend" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;verticalAlign=top" vertex="1" parent="1">
+          <mxGeometry x="750" y="3360" width="180" height="120" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend-title-graph" value="Status" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=14;fontStyle=1;spacingLeft=10;spacingTop=10" vertex="1" parent="1">
+          <mxGeometry x="750" y="3360" width="180" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend-completed" value="● Completed" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontColor=#22c55e;spacingLeft=10" vertex="1" parent="1">
+          <mxGeometry x="750" y="3400" width="180" height="25" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend-progress" value="● In Progress" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontColor=#f59e0b;spacingLeft=10" vertex="1" parent="1">
+          <mxGeometry x="750" y="3430" width="180" height="25" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend-locked" value="● Locked" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontColor=#999999;spacingLeft=10" vertex="1" parent="1">
+          <mxGeometry x="750" y="3460" width="180" height="25" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

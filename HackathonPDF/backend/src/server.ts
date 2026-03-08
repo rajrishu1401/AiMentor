@@ -3,7 +3,6 @@
  * Endpoints:
  *   GET  /api/health
  *   POST /api/learn
- *   POST /api/cleanup
  */
 
 import dotenv from 'dotenv';
@@ -13,7 +12,6 @@ import express, { Request, Response, NextFunction } from 'express';
 import multer from 'multer';
 import cors from 'cors';
 import { processLearningRequest } from './services/orchestrationService';
-import { deleteFromS3 } from './services/s3Service';
 import { logger } from './utils/logger';
 import { IntentType } from './shared/types';
 
@@ -117,36 +115,6 @@ app.post('/api/learn', upload.single('file'), async (req: Request, res: Response
             message: 'An unexpected error occurred. Please try again.',
             details: message,
         });
-    }
-});
-
-// ─── POST /api/cleanup ────────────────────────────────────────────────────────
-
-app.post('/api/cleanup', async (req: Request, res: Response) => {
-    try {
-        const { s3Uri } = req.body as { s3Uri?: string };
-
-        if (!s3Uri) {
-            return res.status(400).json({ error: 'Provide s3Uri in the request body.' });
-        }
-
-        // Parse s3://bucket/key
-        const withoutPrefix = s3Uri.replace(/^s3:\/\//, '');
-        const slashIdx = withoutPrefix.indexOf('/');
-        if (slashIdx === -1) {
-            return res.status(400).json({ error: 'Invalid s3Uri format.' });
-        }
-
-        const bucket = withoutPrefix.slice(0, slashIdx);
-        const key = withoutPrefix.slice(slashIdx + 1);
-
-        await deleteFromS3({ bucket, key, uri: s3Uri });
-
-        return res.json({ success: true, message: 'Document deleted from S3.' });
-    } catch (err) {
-        const message = err instanceof Error ? err.message : String(err);
-        logger.error('Cleanup error', { error: message });
-        return res.status(500).json({ error: 'Cleanup failed.', details: message });
     }
 });
 

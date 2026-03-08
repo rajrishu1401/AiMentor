@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import "./AIMentorDrawer.css";
 
-const CHAT_API = "http://localhost:5005/chat";
+const CHAT_API = "http://13.232.0.142/chatbot/chat";
 
 /* ── helpers ──────────────────────────────────────── */
 function makeSession() {

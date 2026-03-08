@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { useState, useCallback } from 'react';
 
-// Use relative path - Vite will proxy to http://localhost:5006
-const API_BASE = '/api';
+// Direct URL to PDF backend
+const API_BASE = 'http://13.232.0.142/pdf/api';
 
 export function usePDFLearning() {
     const [state, setState] = useState('idle'); // 'idle' | 'loading' | 'success' | 'error'

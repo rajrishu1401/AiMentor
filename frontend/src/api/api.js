@@ -1,6 +1,6 @@
 import { DEMO_MODE, DEMO_ROADMAPS } from '../config/demoMode';
 
-const API_BASE = "http://localhost:5012/api";
+const API_BASE = "http://13.232.0.142/api";
 
 export const apiRequest = async (url, method = "GET", body) => {
   // Demo mode - return mock data

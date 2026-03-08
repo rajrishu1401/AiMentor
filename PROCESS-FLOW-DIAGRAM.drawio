@@ -1,0 +1,382 @@
+<mxfile host="app.diagrams.net" modified="2026-03-08T00:00:00.000Z" agent="Kiro" version="21.0.0">
+  <diagram name="HackVeda AI Process Flow" id="process-flow">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="2400">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title -->
+        <mxCell id="title" value="HackVeda AI - Complete User Journey Process Flow" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=24;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="500" y="20" width="600" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- START -->
+        <mxCell id="start" value="START" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="750" y="80" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- User Authentication -->
+        <mxCell id="auth-decision" value="User Logged In?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13" vertex="1" parent="1">
+          <mxGeometry x="720" y="180" width="180" height="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-start-auth" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#666666" edge="1" parent="1" source="start" target="auth-decision">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Login/Signup -->
+        <mxCell id="login-page" value="Login / Signup Page&#xa;&#xa;• Email/Password&#xa;• JWT Token&#xa;• DynamoDB Auth" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;align=left;spacingLeft=10" vertex="1" parent="1">
+          <mxGeometry x="500" y="320" width="180" height="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-auth-no" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#CC0000" edge="1" parent="1" source="auth-decision" target="login-page">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Dashboard -->
+        <mxCell id="dashboard" value="Dashboard&#xa;&#xa;• View Roadmaps&#xa;• Progress Tracking&#xa;• AI Mentor Access&#xa;• PDF Learning" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;align=left;spacingLeft=10;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="920" y="320" width="180" height="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-auth-yes" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#00CC00" edge="1" parent="1" source="auth-decision" target="dashboard">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-login-dashboard" value="Success" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#00CC00;dashed=1" edge="1" parent="1" source="login-page" target="dashboard">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Feature Selection -->
+        <mxCell id="feature-choice" value="Select Feature" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13" vertex="1" parent="1">
+          <mxGeometry x="720" y="480" width="180" height="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-dashboard-feature" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#666666" edge="1" parent="1" source="dashboard" target="feature-choice">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Learning Roadmap Path -->
+        <mxCell id="roadmap-flow" value="Learning Roadmap Flow" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=14;fontStyle=1;startSize=40" vertex="1" parent="1">
+          <mxGeometry x="80" y="640" width="700" height="1200" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="create-roadmap" value="Create Roadmap&#xa;&#xa;• Subject&#xa;• Level&#xa;• Goals&#xa;&#xa;AI: Curriculum Agent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;align=left;spacingLeft=10" vertex="1" parent="roadmap-flow">
+          <mxGeometry x="40" y="60" width="160" height="120" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="roadmap-generated" value="Roadmap Generated&#xa;&#xa;• Topics&#xa;• Subtopics&#xa;• Skills Mapped" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;align=left;spacingLeft=10" vertex="1" parent="roadmap-flow">
+          <mxGeometry x="260" y="60" width="160" height="120" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-create-generated" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#82b366" edge="1" parent="roadmap-flow" source="create-roadmap" target="roadmap-generated">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="select-subtopic" value="Select Subtopic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1" vertex="1" parent="roadmap-flow">
+          <mxGeometry x="480" y="60" width="160" height="120" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-generated-subtopic" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#666666" edge="1" parent="roadmap-flow" source="roadmap-generated" target="select-subtopic">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Lesson Phase -->
+        <mxCell id="lesson-phase" value="Lesson Phase&#xa;&#xa;• Theory Content&#xa;• YouTube Videos&#xa;• Skills List&#xa;&#xa;AI: Tutor Agent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;align=left;spacingLeft=10" vertex="1" parent="roadmap-flow">
+          <mxGeometry x="240" y="240" width="200" height="120" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-subtopic-lesson" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#666666" edge="1" parent="roadmap-flow" source="select-subtopic" target="lesson-phase">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Quiz Phase -->
+        <mxCell id="quiz-phase" value="Quiz Phase&#xa;&#xa;• Generate Quiz&#xa;• Answer Questions&#xa;• Submit Quiz&#xa;&#xa;AI: Evaluation Agent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;align=left;spacingLeft=10" vertex="1" parent="roadmap-flow">
+          <mxGeometry x="240" y="420" width="200" height="120" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-lesson-quiz" value="Complete" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#00CC00" edge="1" parent="roadmap-flow" source="lesson-phase" target="quiz-phase">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Quiz Results -->
+        <mxCell id="quiz-results" value="Quiz Results&#xa;&#xa;• Score Calculated&#xa;• Feedback Given&#xa;• AI Assistant Unlocked" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;align=left;spacingLeft=10" vertex="1" parent="roadmap-flow">
+          <mxGeometry x="240" y="600" width="200" height="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-quiz-results" value="Submit" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#9673a6" edge="1" parent="roadmap-flow" source="quiz-phase" target="quiz-results">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Coding Decision -->
+        <mxCell id="coding-decision" value="Coding&#xa;Challenge&#xa;Required?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12" vertex="1" parent="roadmap-flow">
+          <mxGeometry x="260" y="760" width="160" height="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-results-coding" value="Next" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#666666" edge="1" parent="roadmap-flow" source="quiz-results" target="coding-decision">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Coding Challenge -->
+        <mxCell id="coding-challenge" value="Coding Challenge&#xa;&#xa;• Problem Statement&#xa;• Test Cases&#xa;• Code Editor&#xa;• Judge0 Execution&#xa;&#xa;AI: Coding Agent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;align=left;spacingLeft=10" vertex="1" parent="roadmap-flow">
+          <mxGeometry x="40" y="920" width="200" height="140" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-coding-yes" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#00CC00" edge="1" parent="roadmap-flow" source="coding-decision" target="coding-challenge">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Mark Complete -->
+        <mxCell id="mark-complete" value="Mark Subtopic&#xa;Complete&#xa;&#xa;• Save Progress&#xa;• Update DynamoDB" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;align=center" vertex="1" parent="roadmap-flow">
+          <mxGeometry x="460" y="920" width="180" height="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-coding-no" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#CC0000" edge="1" parent="roadmap-flow" source="coding-decision" target="mark-complete">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-coding-complete" value="Submit" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#00CC00" edge="1" parent="roadmap-flow" source="coding-challenge" target="mark-complete">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Next Subtopic -->
+        <mxCell id="next-subtopic" value="More&#xa;Subtopics?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12" vertex="1" parent="roadmap-flow">
+          <mxGeometry x="470" y="1060" width="160" height="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-complete-next" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#666666" edge="1" parent="roadmap-flow" source="mark-complete" target="next-subtopic">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-next-yes" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#00CC00;exitX=1;exitY=0.5;entryX=1;entryY=0.5" edge="1" parent="roadmap-flow" source="next-subtopic" target="select-subtopic">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="670" y="1110" />
+              <mxPoint x="670" y="120" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- PDF Learning Path -->
+        <mxCell id="pdf-flow" value="PDF Learning Flow" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=14;fontStyle=1;startSize=40" vertex="1" parent="1">
+          <mxGeometry x="880" y="640" width="600" height="600" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="upload-pdf" value="Upload PDF&#xa;&#xa;• Select File&#xa;• Upload to S3&#xa;• Process Document" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=left;spacingLeft=10" vertex="1" parent="pdf-flow">
+          <mxGeometry x="40" y="60" width="180" height="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="select-mode" value="Select Learning Mode" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12" vertex="1" parent="pdf-flow">
+          <mxGeometry x="280" y="60" width="180" height="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-upload-mode" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#666666" edge="1" parent="pdf-flow" source="upload-pdf" target="select-mode">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- PDF Modes -->
+        <mxCell id="teach-mode" value="Teach Mode&#xa;&#xa;• Detailed Explanations&#xa;• Concept Breakdown&#xa;&#xa;AI: Learning Assistant" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;align=left;spacingLeft=10" vertex="1" parent="pdf-flow">
+          <mxGeometry x="40" y="220" width="180" height="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="plan-mode" value="Plan Mode&#xa;&#xa;• Learning Roadmap&#xa;• Structured Path&#xa;&#xa;AI: Learning Assistant" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;align=left;spacingLeft=10" vertex="1" parent="pdf-flow">
+          <mxGeometry x="240" y="220" width="180" height="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="quiz-mode" value="Quiz Mode&#xa;&#xa;• Practice Questions&#xa;• Test Knowledge&#xa;&#xa;AI: Learning Assistant" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;align=left;spacingLeft=10" vertex="1" parent="pdf-flow">
+          <mxGeometry x="40" y="360" width="180" height="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="summary-mode" value="Summary Mode&#xa;&#xa;• Concise Summary&#xa;• Key Points&#xa;&#xa;AI: Learning Assistant" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;align=left;spacingLeft=10" vertex="1" parent="pdf-flow">
+          <mxGeometry x="240" y="360" width="180" height="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-mode-teach" value="Teach" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#9673a6" edge="1" parent="pdf-flow" source="select-mode" target="teach-mode">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-mode-plan" value="Plan" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#9673a6" edge="1" parent="pdf-flow" source="select-mode" target="plan-mode">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-mode-quiz" value="Quiz" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#9673a6" edge="1" parent="pdf-flow" source="select-mode" target="quiz-mode">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-mode-summary" value="Summary" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#9673a6" edge="1" parent="pdf-flow" source="select-mode" target="summary-mode">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- PDF Result -->
+        <mxCell id="pdf-result" value="Display Result&#xa;&#xa;• Markdown Output&#xa;• Download Option" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;align=center" vertex="1" parent="pdf-flow">
+          <mxGeometry x="200" y="500" width="200" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-teach-result" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#82b366;dashed=1" edge="1" parent="pdf-flow" source="teach-mode" target="pdf-result">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-plan-result" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#82b366;dashed=1" edge="1" parent="pdf-flow" source="plan-mode" target="pdf-result">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-quiz-result" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#82b366;dashed=1" edge="1" parent="pdf-flow" source="quiz-mode" target="pdf-result">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-summary-result" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#82b366;dashed=1" edge="1" parent="pdf-flow" source="summary-mode" target="pdf-result">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- AI Mentor / Chatbot -->
+        <mxCell id="chatbot-flow" value="AI Mentor / Chatbot" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=14;fontStyle=1;startSize=40" vertex="1" parent="1">
+          <mxGeometry x="880" y="1300" width="600" height="400" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="chatbot-trigger" value="User Opens&#xa;AI Mentor" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1" vertex="1" parent="chatbot-flow">
+          <mxGeometry x="40" y="60" width="140" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="chatbot-context" value="Gather Context&#xa;&#xa;• Current Page&#xa;• User Progress&#xa;• Session Data" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;align=left;spacingLeft=10" vertex="1" parent="chatbot-flow">
+          <mxGeometry x="220" y="60" width="160" height="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-trigger-context" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#666666" edge="1" parent="chatbot-flow" source="chatbot-trigger" target="chatbot-context">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="chatbot-query" value="User Sends&#xa;Message" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12" vertex="1" parent="chatbot-flow">
+          <mxGeometry x="420" y="60" width="140" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-context-query" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#666666" edge="1" parent="chatbot-flow" source="chatbot-context" target="chatbot-query">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="chatbot-bedrock" value="AWS Bedrock&#xa;Chatbot Agent&#xa;&#xa;• Process Query&#xa;• Generate Response&#xa;• Context-Aware" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;align=left;spacingLeft=10" vertex="1" parent="chatbot-flow">
+          <mxGeometry x="220" y="200" width="160" height="120" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-query-bedrock" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#9673a6" edge="1" parent="chatbot-flow" source="chatbot-query" target="chatbot-bedrock">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="chatbot-response" value="Display Response&#xa;&#xa;• Markdown Format&#xa;• Code Blocks&#xa;• Streaming" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;align=left;spacingLeft=10" vertex="1" parent="chatbot-flow">
+          <mxGeometry x="420" y="220" width="140" height="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-bedrock-response" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#82b366" edge="1" parent="chatbot-flow" source="chatbot-bedrock" target="chatbot-response">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Knowledge Graph -->
+        <mxCell id="knowledge-graph" value="Knowledge Graph&#xa;&#xa;• Skill Dependencies&#xa;• Visual Representation&#xa;• Interactive Nodes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;align=left;spacingLeft=10" vertex="1" parent="1">
+          <mxGeometry x="1560" y="640" width="180" height="120" as="geometry" />
+        </mxCell>
+        
+        <!-- Connections from Dashboard -->
+        <mxCell id="edge-feature-roadmap" value="Learning&#xa;Roadmap" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#82b366" edge="1" parent="1" source="feature-choice" target="roadmap-flow">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-feature-pdf" value="PDF&#xa;Learning" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#6c8ebf" edge="1" parent="1" source="feature-choice" target="pdf-flow">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-feature-chatbot" value="AI&#xa;Mentor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#9673a6" edge="1" parent="1" source="feature-choice" target="chatbot-flow">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-feature-graph" value="Knowledge&#xa;Graph" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#b85450" edge="1" parent="1" source="feature-choice" target="knowledge-graph">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Return to Dashboard -->
+        <mxCell id="return-dashboard" value="Return to&#xa;Dashboard" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1560" y="1300" width="140" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-roadmap-return" value="Complete" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#666666;dashed=1;exitX=0.5;exitY=1" edge="1" parent="1" source="next-subtopic" target="return-dashboard">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="630" y="1800" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="edge-pdf-return" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#666666;dashed=1" edge="1" parent="1" source="pdf-result" target="return-dashboard">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-graph-return" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#666666;dashed=1" edge="1" parent="1" source="knowledge-graph" target="return-dashboard">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-return-dashboard" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#9673a6;exitX=0;exitY=0.5;entryX=1;entryY=0.5" edge="1" parent="1" source="return-dashboard" target="dashboard">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1520" y="1340" />
+              <mxPoint x="1520" y="200" />
+              <mxPoint x="1150" y="200" />
+              <mxPoint x="1150" y="370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Legend -->
+        <mxCell id="legend-box" value="Legend" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=14;fontStyle=1;startSize=30" vertex="1" parent="1">
+          <mxGeometry x="80" y="1900" width="400" height="280" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend-user" value="User Action" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11" vertex="1" parent="legend-box">
+          <mxGeometry x="20" y="50" width="120" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend-ai" value="AI Processing" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11" vertex="1" parent="legend-box">
+          <mxGeometry x="160" y="50" width="120" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend-process" value="System Process" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11" vertex="1" parent="legend-box">
+          <mxGeometry x="20" y="110" width="120" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend-complete" value="Completion" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11" vertex="1" parent="legend-box">
+          <mxGeometry x="160" y="110" width="120" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend-decision" value="Decision Point" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11" vertex="1" parent="legend-box">
+          <mxGeometry x="60" y="170" width="120" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend-coding" value="Coding Challenge" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11" vertex="1" parent="legend-box">
+          <mxGeometry x="200" y="190" width="120" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- AI Agents Info -->
+        <mxCell id="ai-agents-box" value="AI Agents Used" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=14;fontStyle=1;startSize=30" vertex="1" parent="1">
+          <mxGeometry x="540" y="1900" width="500" height="280" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="ai-list" value="1. Tutor Agent - Lesson content generation&#xa;2. Curriculum Agent - Roadmap creation&#xa;3. Evaluation Agent - Quiz generation &amp; grading&#xa;4. Skill Mapping Agent - Skill analysis&#xa;5. Coding Agent - Coding challenge generation&#xa;6. Test Case Generator - Test case creation&#xa;7. Chatbot Agent - Conversational AI&#xa;8. Learning Assistant - PDF-based learning" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacingLeft=10" vertex="1" parent="ai-agents-box">
+          <mxGeometry x="10" y="40" width="480" height="230" as="geometry" />
+        </mxCell>
+        
+        <!-- External Services -->
+        <mxCell id="services-box" value="External Services" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=14;fontStyle=1;startSize=30" vertex="1" parent="1">
+          <mxGeometry x="1100" y="1900" width="400" height="280" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="services-list" value="• AWS Bedrock - AI/ML Services&#xa;• DynamoDB - User data storage&#xa;• S3 - PDF storage &amp; frontend hosting&#xa;• Judge0 - Code execution engine&#xa;• Nginx - Reverse proxy&#xa;• PM2 - Process management&#xa;&#xa;Backend Services:&#xa;• Main Backend (Port 5012)&#xa;• Chatbot Backend (Port 5005)&#xa;• PDF Backend (Port 5006)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacingLeft=10" vertex="1" parent="services-box">
+          <mxGeometry x="10" y="40" width="380" height="230" as="geometry" />
+        </mxCell>
+        
+        <!-- END -->
+        <mxCell id="end" value="END" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1570" y="1440" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-return-end" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#666666" edge="1" parent="1" source="return-dashboard" target="end">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

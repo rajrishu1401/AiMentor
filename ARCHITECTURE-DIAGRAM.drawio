@@ -1,0 +1,243 @@
+<mxfile host="app.diagrams.net" modified="2026-03-08T00:00:00.000Z" agent="Kiro" etag="HackVedaAI" version="21.0.0" type="device">
+  <diagram name="HackVeda AI Architecture" id="architecture">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2000" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title -->
+        <mxCell id="title" value="HackVeda AI - Complete Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=28;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="650" y="20" width="500" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- User/Client Layer -->
+        <mxCell id="user" value="User Browser" style="shape=actor;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=16;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="850" y="100" width="120" height="120" as="geometry" />
+        </mxCell>
+        
+        <!-- AWS S3 Frontend -->
+        <mxCell id="s3-container" value="AWS S3 Static Website Hosting" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;verticalAlign=top;fontSize=16;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="700" y="280" width="400" height="180" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="frontend" value="React Frontend (Vite Build)&#xa;&#xa;• Dashboard&#xa;• Learning Roadmaps&#xa;• Coding Challenges&#xa;• PDF Learning&#xa;• Knowledge Graph" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="720" y="320" width="360" height="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="s3-url" value="URL: aimentor-frontend.s3-website.ap-south-1.amazonaws.com" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=2" vertex="1" parent="1">
+          <mxGeometry x="720" y="430" width="360" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Connection: User to Frontend -->
+        <mxCell id="edge-user-frontend" value="HTTPS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#0066CC;" edge="1" parent="1" source="user" target="s3-container">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- EC2 Instance Container -->
+        <mxCell id="ec2-container" value="AWS EC2 Instance (t3.medium) - IP: 13.232.0.142" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;verticalAlign=top;fontSize=16;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="80" y="520" width="1600" height="300" as="geometry" />
+        </mxCell>
+        
+        <!-- Nginx Reverse Proxy -->
+        <mxCell id="nginx" value="Nginx Reverse Proxy&#xa;Port 80&#xa;&#xa;Routes:&#xa;/api → 5012&#xa;/chatbot → 5005&#xa;/pdf → 5006" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="800" y="570" width="220" height="130" as="geometry" />
+        </mxCell>
+        
+        <!-- Backend Services -->
+        <mxCell id="backend-main" value="Main Backend&#xa;Express.js - Port 5012&#xa;PM2: aiMentor-backend&#xa;&#xa;• Authentication (JWT)&#xa;• Learning Roadmaps&#xa;• User Management&#xa;• Quiz Generation&#xa;• Coding Challenges" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=left;spacingLeft=10;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="120" y="720" width="240" height="140" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="backend-chatbot" value="Chatbot Backend&#xa;Express.js - Port 5005&#xa;PM2: aiMentor-chatbot&#xa;&#xa;• AI Mentor&#xa;• Sandbox Chatbot&#xa;• Context-aware" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=left;spacingLeft=10;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="400" y="720" width="240" height="140" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="backend-pdf" value="PDF Backend&#xa;Express + TS - Port 5006&#xa;PM2: aiMentor-pdf&#xa;&#xa;• PDF Upload&#xa;• 4 Learning Modes&#xa;• Knowledge Base" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=left;spacingLeft=10;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="680" y="720" width="240" height="140" as="geometry" />
+        </mxCell>
+        
+        <!-- PM2 Process Manager -->
+        <mxCell id="pm2" value="PM2 Manager&#xa;&#xa;• Auto-restart&#xa;• Log management&#xa;• Boot startup" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="960" y="720" width="200" height="140" as="geometry" />
+        </mxCell>
+        
+        <!-- IAM Role -->
+        <mxCell id="iam-role" value="IAM Role&#xa;&#xa;• DynamoDB&#xa;• Bedrock&#xa;• S3 Access" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="720" width="200" height="140" as="geometry" />
+        </mxCell>
+        
+        <!-- Connections: Frontend to Nginx -->
+        <mxCell id="edge-frontend-nginx" value="HTTP API Calls" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#0066CC;" edge="1" parent="1" source="frontend" target="nginx">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Connections: Nginx to Backends -->
+        <mxCell id="edge-nginx-main" value="/api" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#00CC66;" edge="1" parent="1" source="nginx" target="backend-main">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-nginx-chatbot" value="/chatbot" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#00CC66;" edge="1" parent="1" source="nginx" target="backend-chatbot">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-nginx-pdf" value="/pdf" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#00CC66;" edge="1" parent="1" source="nginx" target="backend-pdf">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- AWS Services Layer -->
+        <mxCell id="aws-services-title" value="AWS Services" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="800" y="880" width="220" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- DynamoDB -->
+        <mxCell id="dynamodb" value="DynamoDB&#xa;&#xa;hackveda-users&#xa;ap-south-1&#xa;&#xa;• User profiles&#xa;• Auth data&#xa;• Progress&#xa;• Roadmaps" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;align=center;" vertex="1" parent="1">
+          <mxGeometry x="120" y="940" width="200" height="160" as="geometry" />
+        </mxCell>
+        
+        <!-- AWS Bedrock Agents Container -->
+        <mxCell id="bedrock-container" value="AWS Bedrock - 8 Specialized AI Agents" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;verticalAlign=top;fontSize=16;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="360" y="940" width="800" height="320" as="geometry" />
+        </mxCell>
+        
+        <!-- Bedrock Agents Row 1 -->
+        <mxCell id="agent-tutor" value="Tutor Agent&#xa;&#xa;Personalized&#xa;teaching" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="380" y="990" width="170" height="70" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="agent-curriculum" value="Curriculum&#xa;Agent&#xa;&#xa;Learning paths" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="570" y="990" width="170" height="70" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="agent-evaluation" value="Evaluation&#xa;Agent&#xa;&#xa;Assessment" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="760" y="990" width="170" height="70" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="agent-skill" value="Skill Mapping&#xa;Agent&#xa;&#xa;Analysis" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="950" y="990" width="170" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Bedrock Agents Row 2 -->
+        <mxCell id="agent-coding" value="Coding Agent&#xa;&#xa;Challenge&#xa;generation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="380" y="1080" width="170" height="70" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="agent-testcase" value="Test Case&#xa;Generator&#xa;&#xa;Auto tests" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="570" y="1080" width="170" height="70" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="agent-chatbot" value="Chatbot&#xa;Agent&#xa;&#xa;Conversational" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="760" y="1080" width="170" height="70" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="agent-learning" value="Learning&#xa;Assistant&#xa;&#xa;PDF learning" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="950" y="1080" width="170" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Knowledge Base -->
+        <mxCell id="kb" value="Knowledge&#xa;Base&#xa;&#xa;Domain&#xa;knowledge" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="680" y="1170" width="140" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- S3 for PDFs -->
+        <mxCell id="s3-pdf-storage" value="AWS S3&#xa;&#xa;PDF Storage" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="940" width="160" height="120" as="geometry" />
+        </mxCell>
+        
+        <!-- Judge0 Service -->
+        <mxCell id="judge0-service-container" value="Judge0 Code Execution" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;verticalAlign=top;fontSize=14;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1400" y="940" width="260" height="160" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="judge0-instance" value="EC2: 13.234.32.75:2358&#xa;&#xa;• 50+ Languages&#xa;• Sandboxed&#xa;• Base64 encoding&#xa;• Timeout limits" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="980" width="220" height="100" as="geometry" />
+        </mxCell>
+        
+        <!-- Connections: Backends to AWS Services -->
+        <mxCell id="edge-main-dynamodb" value="User Auth&#xa;&amp; Data" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#CC6600;dashed=1;" edge="1" parent="1" source="backend-main" target="dynamodb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-main-bedrock" value="AI Agents&#xa;API Calls" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#9933FF;dashed=1;" edge="1" parent="1" source="backend-main" target="bedrock-container">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="230" y="740" as="sourcePoint" />
+            <mxPoint x="500" y="860" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="edge-chatbot-bedrock" value="Chatbot&#xa;Agent" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#9933FF;dashed=1;" edge="1" parent="1" source="backend-chatbot" target="agent-chatbot">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-pdf-bedrock" value="Learning&#xa;Assistant" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#9933FF;dashed=1;" edge="1" parent="1" source="backend-pdf" target="agent-learning">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-pdf-s3" value="PDF&#xa;Upload/Retrieve" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#CC9900;dashed=1;" edge="1" parent="1" source="backend-pdf" target="s3-pdf-storage">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-main-judge0" value="Code&#xa;Execution" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#CC0000;dashed=1;" edge="1" parent="1" source="backend-main" target="judge0-instance">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="edge-kb-agents" value="Domain&#xa;Knowledge" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;strokeColor=#666666;dashed=1;" edge="1" parent="1" source="kb" target="agent-learning">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Legend -->
+        <mxCell id="legend-container" value="Legend" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;verticalAlign=top;fontSize=14;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1400" y="1120" width="260" height="140" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend-http" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#0066CC;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1420" y="1160" as="sourcePoint" />
+            <mxPoint x="1490" y="1160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend-http-text" value="HTTP/HTTPS" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1500" y="1150" width="140" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend-api" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#9933FF;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1420" y="1190" as="sourcePoint" />
+            <mxPoint x="1490" y="1190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend-api-text" value="AWS API Calls" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1500" y="1180" width="140" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend-data" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#CC6600;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1420" y="1220" as="sourcePoint" />
+            <mxPoint x="1490" y="1220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend-data-text" value="Data Flow" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1500" y="1210" width="140" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Key Features Box -->
+        <mxCell id="features-container" value="Key Features" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;verticalAlign=top;fontSize=16;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="570" width="460" height="280" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="features-text" value="✓ Personalized Learning Roadmaps&#xa;✓ AI-Powered Coding Challenges&#xa;✓ Interactive Quizzes with AI&#xa;✓ 24/7 AI Mentor &amp; Chatbot&#xa;✓ PDF Learning (4 modes)&#xa;✓ Knowledge Graph Viz&#xa;✓ Real-time Code Execution&#xa;✓ Progress Tracking&#xa;✓ JWT Authentication&#xa;✓ Multi-language (50+)&#xa;✓ AWS Bedrock Integration&#xa;✓ IAM Role Security" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=13;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="610" width="420" height="220" as="geometry" />
+        </mxCell>
+        
+        <!-- Tech Stack Box -->
+        <mxCell id="tech-container" value="Technology Stack" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;verticalAlign=top;fontSize=16;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="100" y="1120" width="240" height="140" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="tech-text" value="Frontend: React + Vite&#xa;Backend: Node.js + Express&#xa;Database: DynamoDB&#xa;AI: AWS Bedrock (8 agents)&#xa;Code: Judge0&#xa;Storage: S3&#xa;Proxy: Nginx&#xa;Process: PM2" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=12;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="120" y="1160" width="200" height="90" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

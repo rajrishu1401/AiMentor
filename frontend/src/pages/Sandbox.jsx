@@ -21,7 +21,7 @@ const STARTERS = {
 const FILE_ICON = { js: "🟨", py: "🐍", java: "☕", cpp: "⚙️", c: "🔵", css: "🎨", html: "🌐", md: "📄", txt: "📝" };
 function fileIcon(name) { return FILE_ICON[name.split(".").pop()] || "📄"; }
 
-const CHAT_API = "http://localhost:5005/chat";
+const CHAT_API = "http://13.232.0.142/chatbot/chat";
 function makeChatSession() {
     return {
         id: Date.now().toString(),

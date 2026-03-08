@@ -13,6 +13,7 @@ export default function QuizPage({ quizData, onFinish, onBack }) {
   const [feedback, setFeedback] = useState("");
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
+  const [loadingNext, setLoadingNext] = useState(false);
 
   // Chatbot state
   const [showChatbot, setShowChatbot] = useState(false);
@@ -352,34 +353,92 @@ export default function QuizPage({ quizData, onFinish, onBack }) {
                 <button
                   className="btn-next-step"
                   onClick={async () => {
-                    // Check if coding is needed
-                    if (!subtopic.isCoding) {
-                      // No coding needed, go to next subtopic
-                      onFinish(false);
-                      return;
-                    }
-
-                    // Coding needed, generate/fetch challenge
+                    setLoadingNext(true);
                     try {
-                      const res = await apiRequest(
-                        "/learning/generate-coding-challenge",
-                        "POST",
-                        {
-                          roadmapIndex,
-                          topicIndex,
-                          subtopicIndex
+                      // Check if coding is needed
+                      if (!subtopic.isCoding) {
+                        // No coding needed, mark as complete and go to next subtopic
+                        try {
+                          await apiRequest(
+                            "/learning/mark-subtopic-complete",
+                            "POST",
+                            {
+                              roadmapIndex,
+                              topicIndex,
+                              subtopicIndex
+                            }
+                          );
+                        } catch (err) {
+                          console.error("Failed to mark subtopic complete:", err);
+                          // Continue anyway - don't block user
                         }
-                      );
+                        onFinish(false);
+                        return;
+                      }
 
-                      onFinish(res.isCoding);
+                      // Coding needed, try to generate/fetch challenge
+                      try {
+                        const res = await apiRequest(
+                          "/learning/generate-coding-challenge",
+                          "POST",
+                          {
+                            roadmapIndex,
+                            topicIndex,
+                            subtopicIndex
+                          }
+                        );
+
+                        onFinish(res.isCoding);
+                      } catch (err) {
+                        console.error("Failed to generate coding challenge:", err);
+                        // Backend failed to parse coding question
+                        // Silently mark as complete and move to next subtopic
+                        try {
+                          await apiRequest(
+                            "/learning/mark-subtopic-complete",
+                            "POST",
+                            {
+                              roadmapIndex,
+                              topicIndex,
+                              subtopicIndex
+                            }
+                          );
+                        } catch (markErr) {
+                          console.error("Failed to mark subtopic complete:", markErr);
+                          // Continue anyway
+                        }
+                        // Move to next subtopic without showing error
+                        onFinish(false);
+                      }
                     } catch (err) {
-                      console.error("Failed to prepare coding challenge:", err);
-                      const errorMessage = err.response?.data?.error || "Failed to prepare coding challenge";
-                      alert(`${errorMessage}\n\nPlease try again.`);
+                      console.error("Unexpected error:", err);
+                      // Fallback: try to mark complete and move on
+                      try {
+                        await apiRequest(
+                          "/learning/mark-subtopic-complete",
+                          "POST",
+                          {
+                            roadmapIndex,
+                            topicIndex,
+                            subtopicIndex
+                          }
+                        );
+                      } catch (markErr) {
+                        console.error("Failed to mark subtopic complete:", markErr);
+                      }
+                      onFinish(false);
                     }
                   }}
+                  disabled={loadingNext}
                 >
-                  Next →
+                  {loadingNext ? (
+                    <>
+                      <span className="loading-spinner"></span>
+                      Loading...
+                    </>
+                  ) : (
+                    "Next →"
+                  )}
                 </button>
               </div>
             </>

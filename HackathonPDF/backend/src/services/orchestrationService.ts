@@ -1,14 +1,13 @@
 /**
  * orchestrationService.ts
  * Coordinates the full pipeline:
- *   PDF upload → text extraction → chunking → retrieval → Bedrock Agent → response
+ *   text extraction → chunking → retrieval → Bedrock Agent → response
  */
 
 import { randomUUID } from 'crypto';
 import { extractTextFromPDF } from './pdfExtractor';
 import { chunkText } from './chunkService';
 import { retrieveTopChunks } from './retrievalService';
-import { uploadToS3 } from './s3Service';
 import { AgentService } from './agentService';
 import {
     LearningRequestInput,
@@ -72,15 +71,7 @@ export async function processLearningRequest(
     }
 
     try {
-        // ── 2. Upload to S3 (fire-and-forget; not blocking the main response) ──────
-        uploadToS3(input.file, input.fileName, input.userId, input.mimeType).catch((err) => {
-            logger.warning('S3 upload failed (non-fatal)', {
-                requestId,
-                error: err instanceof Error ? err.message : String(err),
-            });
-        });
-
-        // ── 3. Extract text ─────────────────────────────────────────────────────────
+        // ── 2. Extract text ─────────────────────────────────────────────────────────
         const extracted = await extractTextFromPDF(input.file, input.fileName);
 
         if (!extracted.text || extracted.text.trim().length < 10) {
@@ -92,15 +83,15 @@ export async function processLearningRequest(
             );
         }
 
-        // ── 4. Chunk ────────────────────────────────────────────────────────────────
+        // ── 3. Chunk ────────────────────────────────────────────────────────────────
         const chunks = chunkText(extracted.text);
         logger.info('Chunking done', { requestId, chunks: chunks.length });
 
-        // ── 5. Retrieve top-K relevant chunks ───────────────────────────────────────
+        // ── 4. Retrieve top-K relevant chunks ───────────────────────────────────────
         const topChunks = retrieveTopChunks(chunks, input.prompt);
         logger.info('Retrieval done', { requestId, topChunks: topChunks.length });
 
-        // ── 6. Invoke Bedrock Agent ──────────────────────────────────────────────────
+        // ── 5. Invoke Bedrock Agent ──────────────────────────────────────────────────
         const agent = new AgentService();
         const output = await agent.generateLearning(requestId, input.prompt, topChunks, input.intent);
 

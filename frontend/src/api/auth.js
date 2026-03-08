@@ -1,6 +1,6 @@
 import { DEMO_MODE, DEMO_USER } from '../config/demoMode';
 
-const API_BASE = "http://localhost:5012/api/auth";
+const API_BASE = "http://13.232.0.142/api/auth";
 
 export async function signupUser(data) {
   // Demo mode - simulate successful signup

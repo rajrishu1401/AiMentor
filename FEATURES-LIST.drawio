@@ -1,0 +1,287 @@
+<mxfile host="app.diagrams.net" modified="2026-03-08T00:00:00.000Z" agent="Kiro" version="21.0.0">
+  <diagram name="HackVeda AI Features" id="features">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="2000">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title -->
+        <mxCell id="title" value="HackVeda AI - Complete Features List" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=32;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="400" y="40" width="800" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="subtitle" value="AI-Powered Personalized Learning Platform" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=18;fontColor=#666666" vertex="1" parent="1">
+          <mxGeometry x="400" y="100" width="800" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Feature 1: Learning Roadmaps -->
+        <mxCell id="feature1-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;verticalAlign=top" vertex="1" parent="1">
+          <mxGeometry x="100" y="180" width="680" height="240" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="feature1-icon" value="🗺️" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=60" vertex="1" parent="1">
+          <mxGeometry x="120" y="200" width="100" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="feature1-title" value="1. Personalized Learning Roadmaps" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=20;fontStyle=1;spacingLeft=10" vertex="1" parent="1">
+          <mxGeometry x="240" y="200" width="520" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="feature1-desc" value="AI-generated custom learning paths tailored to your goals and skill level" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=14;fontColor=#666666;spacingLeft=10" vertex="1" parent="1">
+          <mxGeometry x="240" y="240" width="520" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="feature1-list" value="✓ AI-powered curriculum generation using Curriculum Agent&#xa;✓ Topic-by-topic breakdown with subtopics&#xa;✓ Adaptive learning paths based on progress&#xa;✓ Progress tracking with completion status&#xa;✓ Skill mapping and prerequisite management&#xa;✓ Interactive lessons with theory and examples&#xa;✓ YouTube video integration for visual learning" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=13;spacingLeft=10;whiteSpace=wrap" vertex="1" parent="1">
+          <mxGeometry x="120" y="290" width="640" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Feature 2: Coding Challenges -->
+        <mxCell id="feature2-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;verticalAlign=top" vertex="1" parent="1">
+          <mxGeometry x="820" y="180" width="680" height="240" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="feature2-icon" value="💻" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=60" vertex="1" parent="1">
+          <mxGeometry x="840" y="200" width="100" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="feature2-title" value="2. AI-Powered Coding Challenges" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=20;fontStyle=1;spacingLeft=10" vertex="1" parent="1">
+          <mxGeometry x="960" y="200" width="520" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="feature2-desc" value="Real-time code execution with AI-generated problems and test cases" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=14;fontColor=#666666;spacingLeft=10" vertex="1" parent="1">
+          <mxGeometry x="960" y="240" width="520" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="feature2-list" value="✓ AI-generated coding problems using Coding Agent&#xa;✓ Support for 50+ programming languages (Python, C++, Java, JavaScript, etc.)&#xa;✓ Real-time code execution using Judge0 engine&#xa;✓ Automated test case generation with Test Case Generator Agent&#xa;✓ Instant feedback and evaluation&#xa;✓ Monaco-style code editor with syntax highlighting&#xa;✓ Base64 encoding for special characters support" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=13;spacingLeft=10;whiteSpace=wrap" vertex="1" parent="1">
+          <mxGeometry x="840" y="290" width="640" height="120" as="geometry" />
+        </mxCell>
+        
+        <!-- Feature 3: Interactive Quizzes -->
+        <mxCell id="feature3-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;verticalAlign=top" vertex="1" parent="1">
+          <mxGeometry x="100" y="460" width="680" height="240" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="feature3-icon" value="❓" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=60" vertex="1" parent="1">
+          <mxGeometry x="120" y="480" width="100" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="feature3-title" value="3. Interactive Quizzes with AI Feedback" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=20;fontStyle=1;spacingLeft=10" vertex="1" parent="1">
+          <mxGeometry x="240" y="480" width="520" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="feature3-desc" value="AI-generated quizzes with instant feedback and detailed explanations" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=14;fontColor=#666666;spacingLeft=10" vertex="1" parent="1">
+          <mxGeometry x="240" y="520" width="520" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="feature3-list" value="✓ AI-generated questions using Evaluation Agent&#xa;✓ Multiple-choice questions with instant feedback&#xa;✓ Detailed explanations for each answer&#xa;✓ Score calculation and performance analytics&#xa;✓ AI Assistant unlocked after quiz submission&#xa;✓ Question-by-question review with correctness indicators&#xa;✓ Personalized feedback based on performance" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=13;spacingLeft=10;whiteSpace=wrap" vertex="1" parent="1">
+          <mxGeometry x="120" y="570" width="640" height="120" as="geometry" />
+        </mxCell>
+        
+        <!-- Feature 4: AI Mentor -->
+        <mxCell id="feature4-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;verticalAlign=top" vertex="1" parent="1">
+          <mxGeometry x="820" y="460" width="680" height="240" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="feature4-icon" value="🤖" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=60" vertex="1" parent="1">
+          <mxGeometry x="840" y="480" width="100" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="feature4-title" value="4. 24/7 AI Mentor &amp; Chatbot" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=20;fontStyle=1;spacingLeft=10" vertex="1" parent="1">
+          <mxGeometry x="960" y="480" width="520" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="feature4-desc" value="Intelligent conversational AI assistant powered by AWS Bedrock" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=14;fontColor=#666666;spacingLeft=10" vertex="1" parent="1">
+          <mxGeometry x="960" y="520" width="520" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="feature4-list" value="✓ 24/7 AI assistance using Chatbot Agent&#xa;✓ Context-aware responses based on current learning progress&#xa;✓ Available in Dashboard and Sandbox modes&#xa;✓ Helps with coding questions, debugging, and concept clarification&#xa;✓ Real-time streaming responses&#xa;✓ Code block formatting and syntax highlighting&#xa;✓ Persistent chat history within sessions" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=13;spacingLeft=10;whiteSpace=wrap" vertex="1" parent="1">
+          <mxGeometry x="840" y="570" width="640" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Feature 5: PDF Learning -->
+        <mxCell id="feature5-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;verticalAlign=top" vertex="1" parent="1">
+          <mxGeometry x="100" y="740" width="680" height="280" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="feature5-icon" value="📄" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=60" vertex="1" parent="1">
+          <mxGeometry x="120" y="760" width="100" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="feature5-title" value="5. PDF Learning Assistant" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=20;fontStyle=1;spacingLeft=10" vertex="1" parent="1">
+          <mxGeometry x="240" y="760" width="520" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="feature5-desc" value="Upload any PDF and get AI-powered learning assistance in multiple modes" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=14;fontColor=#666666;spacingLeft=10" vertex="1" parent="1">
+          <mxGeometry x="240" y="800" width="520" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="feature5-list" value="✓ Drag &amp; drop PDF upload with S3 storage&#xa;✓ Four AI-powered learning modes:&#xa;   • Teach Mode: Detailed explanations of concepts&#xa;   • Plan Mode: Generate structured learning roadmaps&#xa;   • Quiz Mode: Create practice quizzes from content&#xa;   • Summary Mode: Get concise summaries&#xa;✓ Powered by Learning Assistant Agent with Knowledge Base&#xa;✓ Markdown-formatted output&#xa;✓ Download and save results&#xa;✓ Context-aware processing" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=13;spacingLeft=10;whiteSpace=wrap" vertex="1" parent="1">
+          <mxGeometry x="120" y="850" width="640" height="160" as="geometry" />
+        </mxCell>
+        
+        <!-- Feature 6: Knowledge Graph -->
+        <mxCell id="feature6-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;verticalAlign=top" vertex="1" parent="1">
+          <mxGeometry x="820" y="740" width="680" height="280" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="feature6-icon" value="🕸️" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=60" vertex="1" parent="1">
+          <mxGeometry x="840" y="760" width="100" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="feature6-title" value="6. Interactive Knowledge Graph" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=20;fontStyle=1;spacingLeft=10" vertex="1" parent="1">
+          <mxGeometry x="960" y="760" width="520" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="feature6-desc" value="Visual representation of skill dependencies and learning paths" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=14;fontColor=#666666;spacingLeft=10" vertex="1" parent="1">
+          <mxGeometry x="960" y="800" width="520" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="feature6-list" value="✓ Interactive skill dependency visualization&#xa;✓ Visual representation of learning paths&#xa;✓ Prerequisite tracking and management&#xa;✓ Skill proficiency levels with color coding:&#xa;   • Green: Completed skills&#xa;   • Yellow: In-progress skills&#xa;   • Gray: Locked/prerequisite skills&#xa;✓ Powered by Skill Mapping Agent&#xa;✓ Click-to-navigate to specific skills&#xa;✓ Real-time progress updates" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=13;spacingLeft=10;whiteSpace=wrap" vertex="1" parent="1">
+          <mxGeometry x="840" y="850" width="640" height="160" as="geometry" />
+        </mxCell>
+        
+        <!-- Feature 7: User Dashboard -->
+        <mxCell id="feature7-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;verticalAlign=top" vertex="1" parent="1">
+          <mxGeometry x="100" y="1060" width="680" height="240" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="feature7-icon" value="📊" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=60" vertex="1" parent="1">
+          <mxGeometry x="120" y="1080" width="100" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="feature7-title" value="7. Comprehensive User Dashboard" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=20;fontStyle=1;spacingLeft=10" vertex="1" parent="1">
+          <mxGeometry x="240" y="1080" width="520" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="feature7-desc" value="Centralized hub for tracking progress and accessing all features" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=14;fontColor=#666666;spacingLeft=10" vertex="1" parent="1">
+          <mxGeometry x="240" y="1120" width="520" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="feature7-list" value="✓ Track learning progress across all roadmaps&#xa;✓ View completed and ongoing roadmaps&#xa;✓ Recent activity feed&#xa;✓ Quick access to all features from unified interface&#xa;✓ Personalized recommendations based on progress&#xa;✓ Performance analytics and statistics&#xa;✓ User profile management" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=13;spacingLeft=10;whiteSpace=wrap" vertex="1" parent="1">
+          <mxGeometry x="120" y="1170" width="640" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Technical Specifications Section -->
+        <mxCell id="tech-specs-title" value="Technical Specifications" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=28;fontStyle=1;fontColor=#000000" vertex="1" parent="1">
+          <mxGeometry x="100" y="1340" width="1400" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="tech-specs-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;verticalAlign=top" vertex="1" parent="1">
+          <mxGeometry x="820" y="1060" width="680" height="240" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="tech-specs-icon" value="⚙️" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=60" vertex="1" parent="1">
+          <mxGeometry x="840" y="1080" width="100" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="tech-specs-title-box" value="Technical Stack" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=20;fontStyle=1;spacingLeft=10" vertex="1" parent="1">
+          <mxGeometry x="960" y="1080" width="520" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="tech-specs-desc" value="Modern, scalable architecture built on AWS cloud infrastructure" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=14;fontColor=#666666;spacingLeft=10" vertex="1" parent="1">
+          <mxGeometry x="960" y="1120" width="520" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="tech-specs-list" value="✓ Frontend: React.js, Vite, Monaco Editor, React Flow&#xa;✓ Backend: Node.js, Express.js, TypeScript&#xa;✓ Database: AWS DynamoDB (NoSQL)&#xa;✓ AI: AWS Bedrock with 8 specialized agents&#xa;✓ Code Execution: Judge0 (50+ languages)&#xa;✓ Hosting: AWS EC2, S3, IAM&#xa;✓ Process Management: PM2, Nginx reverse proxy" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=13;spacingLeft=10;whiteSpace=wrap" vertex="1" parent="1">
+          <mxGeometry x="840" y="1170" width="640" height="120" as="geometry" />
+        </mxCell>
+        
+        <!-- AI Agents Section -->
+        <mxCell id="ai-agents-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;verticalAlign=top" vertex="1" parent="1">
+          <mxGeometry x="100" y="1420" width="1400" height="320" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="ai-agents-title" value="🤖 AI Agents Powering the Platform" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontSize=24;fontStyle=1;spacingTop=10" vertex="1" parent="1">
+          <mxGeometry x="100" y="1430" width="1400" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="ai-agents-subtitle" value="8 Specialized AWS Bedrock Agents with Knowledge Base Integration" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontSize=16;fontColor=#666666" vertex="1" parent="1">
+          <mxGeometry x="100" y="1470" width="1400" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Agent 1 -->
+        <mxCell id="agent1-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf" vertex="1" parent="1">
+          <mxGeometry x="140" y="1520" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="agent1-text" value="1. Curriculum Agent&#xa;Generates personalized learning&#xa;roadmaps and curricula" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="140" y="1520" width="300" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Agent 2 -->
+        <mxCell id="agent2-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf" vertex="1" parent="1">
+          <mxGeometry x="480" y="1520" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="agent2-text" value="2. Coding Agent&#xa;Creates coding challenges with&#xa;starter code and solutions" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="480" y="1520" width="300" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Agent 3 -->
+        <mxCell id="agent3-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf" vertex="1" parent="1">
+          <mxGeometry x="820" y="1520" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="agent3-text" value="3. Test Case Generator Agent&#xa;Generates comprehensive test&#xa;cases for coding problems" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="820" y="1520" width="300" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Agent 4 -->
+        <mxCell id="agent4-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf" vertex="1" parent="1">
+          <mxGeometry x="1160" y="1520" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="agent4-text" value="4. Evaluation Agent&#xa;Generates quizzes and evaluates&#xa;student performance" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1160" y="1520" width="300" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Agent 5 -->
+        <mxCell id="agent5-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366" vertex="1" parent="1">
+          <mxGeometry x="140" y="1640" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="agent5-text" value="5. Chatbot Agent&#xa;24/7 AI mentor for coding help&#xa;and concept clarification" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="140" y="1640" width="300" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Agent 6 -->
+        <mxCell id="agent6-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366" vertex="1" parent="1">
+          <mxGeometry x="480" y="1640" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="agent6-text" value="6. Learning Assistant Agent&#xa;Processes PDFs and provides&#xa;learning assistance" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="480" y="1640" width="300" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Agent 7 -->
+        <mxCell id="agent7-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366" vertex="1" parent="1">
+          <mxGeometry x="820" y="1640" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="agent7-text" value="7. Skill Mapping Agent&#xa;Maps skills and manages&#xa;prerequisite relationships" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="820" y="1640" width="300" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Agent 8 -->
+        <mxCell id="agent8-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366" vertex="1" parent="1">
+          <mxGeometry x="1160" y="1640" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="agent8-text" value="8. Tutor Agent&#xa;Provides personalized tutoring&#xa;and learning guidance" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1160" y="1640" width="300" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Key Highlights Section -->
+        <mxCell id="highlights-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;verticalAlign=top" vertex="1" parent="1">
+          <mxGeometry x="100" y="1780" width="1400" height="180" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="highlights-title" value="✨ Key Highlights" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontSize=24;fontStyle=1;spacingTop=10" vertex="1" parent="1">
+          <mxGeometry x="100" y="1790" width="1400" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="highlights-list" value="🎯 Fully Personalized Learning Experience - Every roadmap, quiz, and challenge is tailored to your goals&#xa;⚡ Real-Time Code Execution - Test your code instantly with support for 50+ programming languages&#xa;🧠 AI-Powered Intelligence - 8 specialized agents working together to provide comprehensive learning support&#xa;📈 Progress Tracking - Visual dashboards and knowledge graphs to monitor your learning journey&#xa;🔒 Secure &amp; Scalable - Built on AWS infrastructure with DynamoDB, EC2, and S3&#xa;🌐 Accessible Anywhere - Cloud-hosted platform accessible from any device with a web browser" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=14;spacingLeft=40;whiteSpace=wrap" vertex="1" parent="1">
+          <mxGeometry x="120" y="1840" width="1360" height="110" as="geometry" />
+        </mxCell>
+        
+        <!-- Footer -->
+        <mxCell id="footer" value="HackVeda AI - Empowering Learners with Intelligent, Personalized Education" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=16;fontStyle=2;fontColor=#666666" vertex="1" parent="1">
+          <mxGeometry x="100" y="1980" width="1400" height="40" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
